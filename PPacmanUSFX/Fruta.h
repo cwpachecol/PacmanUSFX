@@ -15,7 +15,7 @@ public:
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
 
 	int getPosicionY() { return posicionY; }
-	void setPosicionY(int _posicionY) { posicionY = _posiciony; }
+	void setPosicionY(int _posicionY) { posicionY = _posicionY; }
 
 	//Metodos accesores de la propiedad tipo
 	int getTipo() { return tipo; }

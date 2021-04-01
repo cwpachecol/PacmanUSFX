@@ -18,6 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Fantasma.h" />
+    <ClInclude Include="Fruta.h" />
+    <ClInclude Include="Movimientos.h" />
+    <ClInclude Include="Pacman.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Fantasma.cpp" />
+    <ClCompile Include="Fruta.cpp" />
+    <ClCompile Include="main_basico.cpp" />
+    <ClCompile Include="Pacman.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -72,6 +84,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\vclibs\SDL2_ttf\include;C:\vclibs\SDL2_mixer\include;C:\vclibs\SDL2_image\include;C:\vclibs\SDL2_net\include;C:\vclibs\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vclibs\SDL2_ttf\lib\x86;C:\vclibs\SDL2_mixer\lib\x86;C:\vclibs\SDL2_image\lib\x86;C:\vclibs\SDL2_net\lib\x86;C:\vclibs\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -94,6 +108,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_images.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2_net.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -141,18 +156,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Fantasma.cpp" />
-    <ClCompile Include="Fruta.cpp" />
-    <ClCompile Include="main_basico.cpp" />
-    <ClCompile Include="Pacman.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Fantasma.h" />
-    <ClInclude Include="Fruta.h" />
-    <ClInclude Include="Movimientos.h" />
-    <ClInclude Include="Pacman.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
