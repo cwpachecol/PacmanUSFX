@@ -27,7 +27,7 @@
   <ItemGroup>
     <ClCompile Include="Fantasma.cpp" />
     <ClCompile Include="Fruta.cpp" />
-    <ClCompile Include="main_basico.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Pacman.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
