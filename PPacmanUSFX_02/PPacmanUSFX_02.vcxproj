@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{97688b24-3821-43b8-8344-ff83bbeb67e7}</ProjectGuid>
-    <RootNamespace>PPacmanUSFX</RootNamespace>
+    <ProjectGuid>{329d3708-80af-46de-9bd6-14c840ace024}</ProjectGuid>
+    <RootNamespace>PPacmanUSFX_02</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
