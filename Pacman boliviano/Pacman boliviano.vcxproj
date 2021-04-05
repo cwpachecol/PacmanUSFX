@@ -19,27 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Fantasma.cpp" />
-    <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Pacman.cpp" />
-    <ClCompile Include="Textura.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Fantasma.h" />
-    <ClInclude Include="Fruta.h" />
-    <ClInclude Include="Movimientos.h" />
-    <ClInclude Include="Pacman.h" />
-    <ClInclude Include="Textura.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="hello_world.bmp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{97688b24-3821-43b8-8344-ff83bbeb67e7}</ProjectGuid>
-    <RootNamespace>PPacmanUSFX</RootNamespace>
+    <ProjectGuid>{d0c22ad7-cd53-40d6-ae92-e91a38095c42}</ProjectGuid>
+    <RootNamespace>Pacman_boliviano</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
