@@ -23,6 +23,11 @@ int GameManager::onExecute() {
 	pacman->screenSurface = gScreenSurface;
 	pacman->pacmanSurface = gPacManSurface;
 
+	fantasma.window = gWindow;
+	fantasma.renderer = gRenderer;
+	fantasma.screenSurface = gScreenSurface;
+	fantasma.fantasmaSurface = gFantasmaSurface;
+
     SDL_Event Event;
 
     while (juego_en_ejecucion) {
@@ -30,22 +35,21 @@ int GameManager::onExecute() {
             onEvent(&Event);
 			pacman->handleEvent(Event);
         }
-		//Move the dot
+		// Mover Pacman
 		pacman->move();
 
+		// Mover Fantasma
+		fantasma.move();
+		
 		//Clear screen
 		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 		SDL_RenderClear(gRenderer);
-
-		//Render objects
-		//pacman->render();
 
 		//Update screen
 		
         onLoop();
         onRender();
 		SDL_RenderPresent(gRenderer);
-
     }
 
     onCleanup();
@@ -99,6 +103,10 @@ bool GameManager::onInit() {
 			if ((gPacManSurface = SDL_LoadBMP("Resources/PacMan_01.bmp")) == NULL) {
 				return false;
 			}
+
+			if ((gFantasmaSurface = SDL_LoadBMP("Resources/Fantasma.bmp")) == NULL) {
+				return false;
+			}
 		
 		}
 	}
@@ -114,6 +122,7 @@ void GameManager::onEvent(SDL_Event* Event) {
 void GameManager::onLoop() {};
 void GameManager::onRender() {
 	pacman->render();
+	fantasma.render();
 };
 
 void GameManager::onCleanup() {
