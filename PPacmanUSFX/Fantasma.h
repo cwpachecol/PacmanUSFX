@@ -3,6 +3,7 @@
 
 class Fantasma {
 private:
+	//Posicion actual del fantasma en la pantalla
 	int posicionX;
 	int posicionY;
 
