@@ -40,9 +40,13 @@ public:
 	// La superficie grafica (surface) que contiene la ventana
 	SDL_Surface* screenSurface = nullptr;
 
-	// Supeerficie grafica de pacman;
+	// Superficie grafica de pacman;
 	SDL_Surface* pacmanSurface = nullptr;
 	
+	// Textura grafica de pacman;
+	SDL_Texture* pacmanTexture = nullptr;
+
+
 public:
 	//Constructores y destructores
 	Pacman();
@@ -50,6 +54,8 @@ public:
 	Pacman(int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 	Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Surface* _pacmanSurface);
 	Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Surface* _pacmanSurface, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+	Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+
 	//~Pacman();
 
 	//Metodos accesores
