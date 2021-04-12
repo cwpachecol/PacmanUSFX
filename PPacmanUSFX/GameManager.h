@@ -33,14 +33,19 @@ private:
     SDL_Surface* gScreenSurface;
 
     //The images we will load and show on the screen
-    //SDL_Surface* gPacManSurface;
     SDL_Texture* gPacmanTexture;
-    SDL_Surface* gFantasmaSurface;
-    SDL_Surface* gFrutaSurface;
+    SDL_Texture* gFantasmaTexture;
+    SDL_Texture* gFrutasTextures[3];
+    /*
+    SDL_Texture* gFruta01Texture;
+    SDL_Texture* gFruta02Texture;
+    SDL_Texture* gFruta03Texture;
+    SDL_Texture* gFruta04Texture;
+    */
 
 public:
     Pacman* pacman;
-    Fantasma fantasma;
+    Fantasma* fantasma;
     Fruta* fruta;
 
 public:
