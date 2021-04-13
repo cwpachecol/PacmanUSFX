@@ -55,10 +55,7 @@ Pacman::Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _scree
 	alto = 25;
 	anchoPantalla = 640;
 	altoPantalla = 480;
-	window = _window;
 	renderer = _renderer;
-	screenSurface = _screenSurface;
-	pacmanSurface = _pacmanSurface;
 }
 
 Pacman::Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Surface* _pacmanSurface, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
@@ -73,10 +70,7 @@ Pacman::Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _scree
 	alto = 25;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
-	window = _window;
 	renderer = _renderer;
-	screenSurface = _screenSurface;
-	pacmanSurface = _pacmanSurface;
 }
 
 Pacman::Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _screenSurface, SDL_Texture* _pacmanTexture, int _posicionX, int _posicionY, int _anchoPantalla, int _altoPantalla, int _velocidadPatron)
@@ -91,9 +85,7 @@ Pacman::Pacman(SDL_Window* _window, SDL_Renderer* _renderer, SDL_Surface* _scree
 	alto = 25;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
-	window = _window;
 	renderer = _renderer;
-	screenSurface = _screenSurface;
 	pacmanTexture = _pacmanTexture;
 }
 
