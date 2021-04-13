@@ -10,22 +10,15 @@ GameManager::GameManager() {
 	gPacmanTexture = nullptr;
 
 	juego_en_ejecucion = true;
-	//pacman = new Pacman(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	
-	fruta = new Fruta();
 }
 
 int GameManager::onExecute() {
     if (onInit() == false) {
         return -1;
     }
-	//pacman = new Pacman(gWindow, gRenderer, gScreenSurface, gPacManSurface);
-	//pacman = new Pacman(gWindow, gRenderer, gScreenSurface, gPacManSurface, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	pacman = new Pacman(gWindow, gRenderer, gScreenSurface, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
-	//fantasma = new Fantasma();
-	//fantasma = new Fantasma(SCREEN_WIDTH / 4, SCREEN_HEIGHT / 4, SCREEN_WIDTH, SCREEN_HEIGHT, 7);
+	pacman = new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	fantasma = new Fantasma(gRenderer, gFantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT,  5);
-	fruta = new Fruta(gWindow, gRenderer, gScreenSurface, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
+	fruta = new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
 	srand(time(NULL));
 
     SDL_Event Event;
