@@ -37,8 +37,8 @@ private:
     //The images we will load and show on the screen
     SDL_Texture* gPacmanTexture;
     SDL_Texture* gFantasmaTexture;
-    SDL_Texture* gFrutasTextures[3];
-    /*vector<SDL_Texture*> gFrutasTextures;*/
+    //SDL_Texture* gFrutasTextures[3];
+    vector<SDL_Texture*> gFrutasTextures;
     SDL_Texture* gMonedaTexture;
     SDL_Texture* gSuperMonedaTexture;
 
@@ -55,7 +55,7 @@ public:
     Fruta* fruta;
     vector<Moneda*> monedas;
     vector<Moneda*> superMonedas;
-
+    vector<GameObject*> actoresJuego;
 public:
     GameManager();
     int onExecute();
