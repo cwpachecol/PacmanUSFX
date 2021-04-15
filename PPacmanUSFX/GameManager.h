@@ -3,6 +3,7 @@
 #include <string>
 #include <stdlib.h>
 #include <time.h>
+#include <vector>
 
 #include <SDL.h>
 #include <SDL_image.h>
@@ -10,6 +11,7 @@
 #include "Pacman.h"
 #include "Fantasma.h"
 #include "Fruta.h"
+#include "Moneda.h"
 
 using namespace std;
 
@@ -36,6 +38,10 @@ private:
     SDL_Texture* gPacmanTexture;
     SDL_Texture* gFantasmaTexture;
     SDL_Texture* gFrutasTextures[3];
+    /*vector<SDL_Texture*> gFrutasTextures;*/
+    SDL_Texture* gMonedaTexture;
+    SDL_Texture* gSuperMonedaTexture;
+
     /*
     SDL_Texture* gFruta01Texture;
     SDL_Texture* gFruta02Texture;
@@ -47,6 +53,8 @@ public:
     Pacman* pacman;
     Fantasma* fantasma;
     Fruta* fruta;
+    vector<Moneda*> monedas;
+    vector<Moneda*> superMonedas;
 
 public:
     GameManager();

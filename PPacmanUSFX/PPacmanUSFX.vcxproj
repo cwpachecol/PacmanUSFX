@@ -26,6 +26,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="Pacman.cpp" />
+    <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Fantasma.h" />
@@ -34,6 +35,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="Pacman.h" />
+    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="hello_world.bmp" />
