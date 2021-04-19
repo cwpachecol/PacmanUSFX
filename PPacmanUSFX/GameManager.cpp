@@ -26,11 +26,12 @@ int GameManager::onExecute() {
 	pacman = new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5);
 	cout << pacman->getIdObjeto() << endl;
 	
+
 	/*fantasma = new Fantasma(gRenderer, gFantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT,  5);
 	fruta = new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
 	*/
 	//actoresJuego.push_back(new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	actoresJuego.push_back(new Fantasma(gRenderer, gFantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actoresJuego.push_back(new Fantasma(fantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
 	actoresJuego.push_back(new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
 
 	int posx = 0;
@@ -46,7 +47,7 @@ int GameManager::onExecute() {
 		//superMonedas.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
 		actoresJuego.push_back(new Moneda(gRenderer, gSuperMonedaTexture, 50 + (i * 50), 50 + (i * 50), 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
 	}
-
+	
 	for (int i = 0; i < actoresJuego.size(); i++) {
 		cout << actoresJuego[i]->getIdObjeto() << endl;
 	}
@@ -136,12 +137,17 @@ bool GameManager::onInit() {
 				success = false;
 			}
 
-			gFantasmaTexture = loadTexture("Resources/Fantasma.bmp");
+			Texture::renderer = gRenderer;
+
+			fantasmaTexture = new Texture();
+			fantasmaTexture->loadFromImage("Resources/Blinky.bmp");
+
+			/*gFantasmaTexture = loadTexture("Resources/Fantasma.bmp");
 			if (gFantasmaTexture == NULL)
 			{
 				cout << "Fallo en la carga de la textura aqui" << endl;
 				success = false;
-			}
+			}*/
 
 			gFrutasTextures.push_back(loadTexture("Resources/Fruta01.png"));
 			gFrutasTextures.push_back(loadTexture("Resources/Fruta02.png"));

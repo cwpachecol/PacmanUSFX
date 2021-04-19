@@ -12,6 +12,7 @@
 #include "Fantasma.h"
 #include "Fruta.h"
 #include "Moneda.h"
+#include "Texture.h"
 
 using namespace std;
 
@@ -42,6 +43,9 @@ private:
     SDL_Texture* gMonedaTexture;
     SDL_Texture* gSuperMonedaTexture;
 
+    Texture* fantasmaTexture = nullptr;
+
+
     /*
     SDL_Texture* gFruta01Texture;
     SDL_Texture* gFruta02Texture;
@@ -51,6 +55,7 @@ private:
 
 public:
     Pacman* pacman;
+    //vector<Fantasma*> fantasma;
     Fantasma* fantasma;
     Fruta* fruta;
     vector<Moneda*> monedas;

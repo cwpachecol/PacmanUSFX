@@ -1,6 +1,13 @@
 #pragma once
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 class GameObject
 {
+public:
+	string nombre;
 protected:
 	// Posicion en el eje X y Y
 	int idObjeto;
