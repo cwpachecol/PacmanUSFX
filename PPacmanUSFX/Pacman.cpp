@@ -12,7 +12,6 @@ Pacman::Pacman(SDL_Renderer* _renderer, SDL_Texture* _pacmanTexture, int _posici
 	pacmanTexture = _pacmanTexture;
 }
 
-
 void Pacman::handleEvent(SDL_Event& e)
 {
 	// Si se ha precionado una tecla
