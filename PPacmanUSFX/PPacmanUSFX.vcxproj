@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="hello_world.bmp" />
+    <Image Include="Resources\Clyde.bmp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

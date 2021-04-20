@@ -7,7 +7,6 @@ GameManager::GameManager() {
 	gRenderer = nullptr;
 	gScreenSurface = nullptr;
 	gPacmanTexture = nullptr;
-	gFantasmaTexture = nullptr;
 	gMonedaTexture = nullptr;
 
 	/*for (int i = 0; i <= 3; i++)
@@ -31,8 +30,10 @@ int GameManager::onExecute() {
 	fruta = new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT);
 	*/
 	//actoresJuego.push_back(new Pacman(gRenderer, gPacmanTexture, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	actoresJuego.push_back(new Fantasma(220, 220, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
-	actoresJuego.push_back(new Fantasma(fantasmaTexture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actoresJuego.push_back(new Fantasma(fantasma1Texture, 0, 0, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actoresJuego.push_back(new Fantasma(fantasma2Texture, SCREEN_WIDTH / 3, SCREEN_HEIGHT / 3, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	actoresJuego.push_back(new Fantasma("Resources/Clyde.bmp", 220, 220, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT, 5));
+	
 	actoresJuego.push_back(new Fruta(gRenderer, gFrutasTextures, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 25, 25, SCREEN_WIDTH, SCREEN_HEIGHT));
 
 	int posx = 0;
@@ -77,7 +78,7 @@ int GameManager::onExecute() {
 
 
 		////Clear screen
-		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 		SDL_RenderClear(gRenderer);
 
 		//Update screen
@@ -140,8 +141,10 @@ bool GameManager::onInit() {
 
 			Texture::renderer = gRenderer;
 
-			fantasmaTexture = new Texture();
-			fantasmaTexture->loadFromImage("Resources/Blinky.bmp");
+			fantasma1Texture = new Texture();
+			fantasma1Texture->loadFromImage("Resources/Blinky.bmp");
+			fantasma2Texture = new Texture();
+			fantasma2Texture->loadFromImage("Resources/Inkey.bmp");
 
 			/*gFantasmaTexture = loadTexture("Resources/Fantasma.bmp");
 			if (gFantasmaTexture == NULL)
@@ -196,6 +199,10 @@ void GameManager::onRender() {
 	{
 		superMonedas[i]->render();
 	}*/
+
+	for (int i = 0; i < actoresJuego.size(); i++) {
+		actoresJuego[i]->update();
+	}
 
 	for (int i = 0; i < actoresJuego.size(); i++) {
 		actoresJuego[i]->render();

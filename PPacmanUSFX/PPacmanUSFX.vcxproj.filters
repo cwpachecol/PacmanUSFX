@@ -67,5 +67,8 @@
     <Image Include="hello_world.bmp">
       <Filter>Archivos de recursos</Filter>
     </Image>
+    <Image Include="Resources\Clyde.bmp">
+      <Filter>Archivos de recursos</Filter>
+    </Image>
   </ItemGroup>
 </Project>
