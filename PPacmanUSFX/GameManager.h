@@ -44,9 +44,11 @@ private:
     SDL_Texture* gMonedaTexture;
     SDL_Texture* gSuperMonedaTexture;
 
+    Texture* pacmanTextura;
     Texture* fantasma1Texture = nullptr;
     Texture* fantasma2Texture = nullptr;
 
+    
 
     /*
     SDL_Texture* gFruta01Texture;
