@@ -25,6 +25,7 @@ private:
 	int contadorFrames;
 	const int framesMovimiento = 2;
 
+	
 	int posicionXEnTextura;
 	int posicionYEnTextura;
 public:

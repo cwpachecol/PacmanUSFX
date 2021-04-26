@@ -48,7 +48,6 @@ void Fruta::mostrar()
 void Fruta::render()
 {
 	if (visible) {
-		
 
 		SDL_Rect renderQuad = { posicionX, posicionY, ancho, alto };
 		SDL_RenderCopyEx(renderer, frutasTextures[numeroFrutaVisible], nullptr, &renderQuad, 0.0, nullptr, SDL_FLIP_NONE);
