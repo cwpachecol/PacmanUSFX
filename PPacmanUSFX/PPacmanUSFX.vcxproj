@@ -23,10 +23,11 @@
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="mainTemplates.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="Pacman.cpp" />
+    <ClCompile Include="Pared.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
@@ -38,6 +39,7 @@
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="Pacman.h" />
+    <ClInclude Include="Pared.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>
