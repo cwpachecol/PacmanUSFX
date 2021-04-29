@@ -47,7 +47,7 @@ public:
 	// Mover fantasma
 	void move();
 	// Renderizar imagen fantasma
-	//void render() override;
+	// void render() override;
 
 	// Actualizar datos fantasma
 	//void update() override;
