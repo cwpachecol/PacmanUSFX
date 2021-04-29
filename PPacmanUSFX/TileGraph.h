@@ -17,15 +17,15 @@ private:
 	int getIndice(int _x, int _y);
 
 public:
-	TileGraph();
-	TileGraph(int _anchoTileGraph, int _altoTileGraph);
-	~TileGrah();
+	TileGraph() {};
+	TileGraph(int _anchoTileGraph, int _altoTileGraph) {};
+	~TileGrah() {};
 
-	void configurar(int _anchoTileGraph, int _altoTileGraph);
-	Tile* getTileEnLaPosicion(int _x, int _y);
+	void configurar(int _anchoTileGraph, int _altoTileGraph) {};
+	Tile* getTileEnLaPosicion(int _x, int _y) {};
 
-	array<Tile*, 4> getVecinos(Tile* _tile);
-	array<Tile*, 8> getVecinosConDiagonales(Tile* _tile);
+	array<Tile*, 4> getVecinos(Tile* _tile) {};
+	array<Tile*, 8> getVecinosConDiagonales(Tile* _tile) {};
 
 
 };
