@@ -89,8 +89,12 @@ bool MapGenerator::load(string path)
 
 void MapGenerator::populate(std::vector<GameObject*> &_vectorObjetosJuegoGM)
 {
-	//for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
-	//	_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
+	/*for (unsigned int i = 0; i < vectorObjetosJuego.size(); i++) {
+		_vectorObjetosJuegoGM.push_back(vectorObjetosJuego[i]);
+	}*/
+
+	//for (auto ivoj = vectorObjetosJuego.begin(); ivoj != vectorObjetosJuego.end(); ++ivoj) {
+	//	_vectorObjetosJuegoGM.push_back(*ivoj);
 	//}
 
 	for (auto ilvo = listaObjetosJuego.begin(); ilvo != listaObjetosJuego.end(); ++ilvo) {

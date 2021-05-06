@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <list>
 #include <iostream>
 #include <array>
 #include "Tile.h"
@@ -9,8 +10,9 @@ using namespace std;
 class TileGraph
 {
 private:
-	Tile* tiles;
-	vector<Tile*> vectorTilesGraph;
+	//Tile* tiles;
+	//vector<Tile*> vectorTilesGraph;
+	list<Tile*> listaTilesGraph;
 
 	int anchoTileGraph;
 	int altoTileGraph;

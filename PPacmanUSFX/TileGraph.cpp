@@ -2,7 +2,7 @@
 
 TileGraph::TileGraph()
 {
-	tiles = nullptr;
+	//tiles = nullptr;
 
 	anchoTileGraph = 0;
 	altoTileGraph = 0;
