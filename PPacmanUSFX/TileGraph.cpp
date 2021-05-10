@@ -63,36 +63,36 @@ Tile* TileGraph::getTileEn(int _x, int _y)
 
 array<Tile*, 4> TileGraph::get4Vecinos(Tile* _tile)
 {
-	array<Tile*, 4> Vecinos;
+	array<Tile*, 4> vecinos;
 
 	int x = _tile->getPosicionX();
 	int y = _tile->getPosicionY();
 
-	Vecinos[0] = getTileEn(x, y + 1);		// N
-	Vecinos[1] = getTileEn(x + 1, y);		// E
-	Vecinos[2] = getTileEn(x, y - 1);		// S
-	Vecinos[3] = getTileEn(x - 1, y);		// W
+	vecinos[0] = getTileEn(x, y + 1);		// N
+	vecinos[1] = getTileEn(x + 1, y);		// E
+	vecinos[2] = getTileEn(x, y - 1);		// S
+	vecinos[3] = getTileEn(x - 1, y);		// W
 
-	return Vecinos;
+	return vecinos;
 }
 
 array<Tile*, 8> TileGraph::get8Vecinos(Tile* _tile)
 {
-	array<Tile*, 8> Vecinos;
+	array<Tile*, 8> vecinos;
 
 	int x = _tile->getPosicionX();
 	int y = _tile->getPosicionY();
 
-	Vecinos[0] = getTileEn(x, y + 1);		// N
-	Vecinos[1] = getTileEn(x + 1, y);		// E
-	Vecinos[2] = getTileEn(x, y - 1);		// S
-	Vecinos[3] = getTileEn(x - 1, y);		// W
-	Vecinos[4] = getTileEn(x + 1, y + 1);	// NE
-	Vecinos[5] = getTileEn(x - 1, y + 1);	// SE
-	Vecinos[6] = getTileEn(x - 1, y - 1);	// SW
-	Vecinos[7] = getTileEn(x + 1, y - 1);	// NW
+	vecinos[0] = getTileEn(x, y + 1);		// N
+	vecinos[1] = getTileEn(x + 1, y);		// E
+	vecinos[2] = getTileEn(x, y - 1);		// S
+	vecinos[3] = getTileEn(x - 1, y);		// W
+	vecinos[4] = getTileEn(x + 1, y + 1);	// NE
+	vecinos[5] = getTileEn(x - 1, y + 1);	// SE
+	vecinos[6] = getTileEn(x - 1, y - 1);	// SW
+	vecinos[7] = getTileEn(x + 1, y - 1);	// NW
 
-	return Vecinos;
+	return vecinos;
 }
 
 Pacman* TileGraph::getPacman()

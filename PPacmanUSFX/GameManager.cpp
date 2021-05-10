@@ -18,6 +18,7 @@ int GameManager::onExecute() {
 
 	TileGraph tileGraphGM(20, 15);
 
+	GameObject::tileGraph = &tileGraphGM;
 	generadorNivelJuego = new MapGenerator(&tileGraphGM, SCREEN_WIDTH, SCREEN_HEIGHT);
 	generadorNivelJuego->load("Resources/mapa.txt");
 	generadorNivelJuego->populate(actoresJuego);
@@ -28,7 +29,7 @@ int GameManager::onExecute() {
         while (SDL_PollEvent(&Event)) {
             onEvent(&Event);
 			for (int i = 0; i < actoresJuego.size(); i++) {
-				actoresJuego[i]->handleEvent(Event);
+				actoresJuego[i]->handleEvent(&Event);
 			}
         }
 

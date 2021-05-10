@@ -59,15 +59,15 @@ bool MapGenerator::load(string path)
 			case 'x':
 				objetoNuevo = new Pared(tileNuevo, paredTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				objetoNuevo->setParametrosAnimacion(1);
-				cout << tileNuevo->getPosicionX() << "----" << tileNuevo->getPosicionY() << endl;
 				break;
 			case '.':
-				objetoNuevo = new Moneda(monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
+				objetoNuevo = new Moneda(tileNuevo, monedaTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'p':
-				objetoNuevo = new Pacman(pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
+				objetoNuevo = new Pacman(tileNuevo, pacmanTexture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
 				objetoNuevo->setParametrosAnimacion(2);
+				cout << tileNuevo->getPosicionX() << "----" << tileNuevo->getPosicionY() << endl;
 				break;
 			case 'b':
 				objetoNuevo = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);

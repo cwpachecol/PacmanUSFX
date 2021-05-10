@@ -73,6 +73,6 @@ public:
 	// Renderizar imagen
 	virtual void render();
 	virtual void update();
-	virtual void handleEvent(SDL_Event& e) {};
+	virtual void handleEvent(SDL_Event* event) {};
 };
 
