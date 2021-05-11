@@ -69,8 +69,20 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(2);
 				cout << tileNuevo->getPosicionX() << "----" << tileNuevo->getPosicionY() << endl;
 				break;
+			case 'a':
+				objetoNuevo = new Fantasma(tileNuevo, fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(4);
+				break;
 			case 'b':
-				objetoNuevo = new Fantasma(fantasma1Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 3);
+				objetoNuevo = new Fantasma(tileNuevo, fantasma2Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(4);
+				break;
+			case 'c':
+				objetoNuevo = new Fantasma(tileNuevo, fantasma3Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
+				objetoNuevo->setParametrosAnimacion(4);
+				break;
+			case 'd':
+				objetoNuevo = new Fantasma(tileNuevo, fantasma4Texture, x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			}
