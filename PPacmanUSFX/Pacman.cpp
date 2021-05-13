@@ -1,9 +1,21 @@
 #include <stdio.h>
 #include "Pacman.h"
 
-Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, TextureAnimation* _textureAnimation, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
 	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
 {
+	texturaAnimacion = _textureAnimation;
+	texturaAnimacion->setTexture(_texturaPacman);
+	texturaAnimacion->addCuadroAnimacion("izquierda", { 0,0,25,25 });
+	texturaAnimacion->addCuadroAnimacion("izquierda", { 25,0,25,25 });
+	texturaAnimacion->addCuadroAnimacion("derecha", { 0,25,25,25 });
+	texturaAnimacion->addCuadroAnimacion("derecha", { 25,25,25,25 });
+	texturaAnimacion->addCuadroAnimacion("arriba", { 50, 25, 25, 25 });
+	texturaAnimacion->addCuadroAnimacion("arriba", { 75, 25, 25, 25 });
+	texturaAnimacion->addCuadroAnimacion("abajo", { 50,0,25,25 });
+	texturaAnimacion->addCuadroAnimacion("abajo", { 75,0,25,25 });
+
+
 	tileActual = _tile;
 	tileSiguiente = nullptr;
 
