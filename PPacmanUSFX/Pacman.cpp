@@ -182,6 +182,8 @@ void Pacman::update()
 
 void Pacman::render()
 {
+	SDL_Rect* cuadroAnimacion = new SDL_Rect();
+
 	switch (direccionActual){
 	case MOVE_UP:
 		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("arriba")[numeroFrame];
