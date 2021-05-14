@@ -1,6 +1,6 @@
 #include "TextureAnimation.h"
 
-void TextureAnimation::addCuadroAnimacion(string _key, SDL_Rect _cuadroAnimacion)
+void TextureAnimation::addCuadroAnimacion(string _key, SDL_Rect* _cuadroAnimacion)
 {
 	auto emca = mapCuadrosAnimacion.find(_key);
 
@@ -9,7 +9,7 @@ void TextureAnimation::addCuadroAnimacion(string _key, SDL_Rect _cuadroAnimacion
 	}
 	else
 	{
-		vector<SDL_Rect> vca;
+		vector<SDL_Rect*> vca;
 		vca.push_back(_cuadroAnimacion);
 		mapCuadrosAnimacion[_key] = vca;
 	}

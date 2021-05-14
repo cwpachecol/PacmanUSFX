@@ -48,7 +48,6 @@ bool MapGenerator::load(string path)
 			case 'p':
 				objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
 				objetoNuevo->setParametrosAnimacion(2);
-				cout << tileNuevo->getPosicionX() << "----" << tileNuevo->getPosicionY() << endl;
 				break;
 			case 'a':
 				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTexture("fantasma1"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 1);

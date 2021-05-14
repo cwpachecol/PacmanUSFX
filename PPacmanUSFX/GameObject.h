@@ -40,6 +40,7 @@ protected:
 	int contadorFrames;
 	int framesMovimiento;
 
+	SDL_Rect* cuadroAnimacion;
 public:
 	//Constructores y destructores
 	GameObject(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
