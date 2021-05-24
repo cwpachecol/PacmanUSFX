@@ -28,6 +28,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 		posicionY = 0;
 	}
 
+
 	direccionActual = MOVE_RIGHT;
 	direccionSiguiente = MOVE_RIGHT;
 
@@ -122,21 +123,20 @@ bool Pacman::tratarDeMover(MoveDirection _direccionNueva)
 
 void Pacman::update()
 {
-	//
-	//// Check for collision with point
-	//// NOTE: Should this be nextTile?
-	//if (currTile != NULL && currTile->GetPoint() != NULL) {
-	//	SDL_Rect eatingHole = {
-	//		position.x + Point::Margin,
-	//		position.y + Point::Margin,
-	//		Point::Width,
-	//		Point::Height,
-	//	};
+	// Revisar colisiones con monedas
+	// NOTE: Should this be nextTile?
+	if (tileActual != nullptr && tileActual->getMoneda() != nullptr) {
+		SDL_Rect* eatingHole = new SDL_Rect({
+			posicionX /*+ Point::Margin*/,
+			posicionY /*+ Point::Margin*/,
+			ancho,
+			alto,
+		});
 
-	//	if (CheckForCollision(eatingHole, nextTile->GetPoint()->GetCollider())) {
-	//		nextTile->GetPoint()->Delete();
-	//	}
-	//}
+		if (revisarColision(eatingHole, tileSiguiente->getMoneda()->getColisionador())) {
+			tileSiguiente->getMoneda()->deleteGameObject();
+		}
+	}
 
 	// Animacion de pacman
 	if (enMovimiento) {
@@ -172,6 +172,10 @@ void Pacman::update()
 			break;
 		}
 
+
+		colisionador->x = posicionX;
+		colisionador->y = posicionY;
+
 		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
 			setTile(tileSiguiente);
 
@@ -200,4 +204,10 @@ void Pacman::render()
 	}
 
 	texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+}
+
+void Pacman::deleteGameObject()
+{
+	GameObject::deleteGameObject();
+	tileActual->setPacman(nullptr);
 }

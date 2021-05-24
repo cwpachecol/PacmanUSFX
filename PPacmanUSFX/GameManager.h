@@ -36,6 +36,7 @@ private:
     SDL_Renderer* gRenderer;
    
     vector<GameObject*> actoresJuego;
+    list<GameObject*> lactoresJuego;
     MapGenerator* generadorNivelJuego;
     TextureManager* textureManager;
 public:

@@ -11,6 +11,7 @@
 #include "TileGraph.h"
 #include "MoveDirection.h"
 #include "TextureAnimation.h" 
+#include "Moneda.h"
 
 using namespace std;
 
@@ -65,6 +66,7 @@ public:
 	// Renderizar imagen pacman
 	void render() override;
 	//void update();
+	void deleteGameObject() override;
 
 };
 

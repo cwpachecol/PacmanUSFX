@@ -84,47 +84,76 @@ bool Fantasma::tratarDeMover(MoveDirection _direccionNueva) {
 
 void Fantasma::update()
 {
-	if (enMovimiento) {
-		GameObject::update();
-	}
-	else {
-		direccionSiguiente = MoveDirection(rand() % 6);
-	}
+	Pacman* pacman = tileGraph->getPacman();
 
-	if (tileSiguiente == tileActual || tileSiguiente == nullptr) {
-		if (direccionSiguiente != direccionActual && tratarDeMover(direccionSiguiente))
-			direccionActual = direccionSiguiente;
-		else
-			tratarDeMover(direccionActual);
+	if (pacman != nullptr) {
+		
+		// The NPC will calculate a new camino every time it has entered a new tile
+		// In this way, it will dynamically follow Pacman
+		if (tileActual == tileSiguiente) {
+			// Get a camino to Pacman using A* algorithm
+			PathFinder astar(tileGraph);
+			astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
+			camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
-		if (tileSiguiente == nullptr)
-			enMovimiento = false;
-		else
-			enMovimiento = true;
-	}
-	else {
-		switch (direccionActual) {
-			case MOVE_UP:
-				posicionY = max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
-				break;
-			case MOVE_DOWN:
-				posicionY = min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
-				break;
-			case MOVE_RIGHT:
-				posicionX = max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
-				break;
-			case MOVE_LEFT:
-				posicionX = min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
-				break;
+			tileSiguiente = camino[1];
+
+			// All we really want to do after this is check the direction the NPC should go
+			if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
+				direccionActual = MOVE_RIGHT;
+
+			else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
+				direccionActual = MOVE_LEFT;
+
+			else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
+				direccionActual = MOVE_UP;
+
+			else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
+				direccionActual = MOVE_DOWN;
+
+			// Check if Fantasma collides with Pacman, if so delete Pacman
+			// TODO: There should be a Kill() method within Pacman, which will play death animation
+			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
+				if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
+					tile->getPacman()->deleteGameObject();
+				}
+			}
 		}
 
-		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && getPosicionY() == tileSiguiente->getPosicionY() * Tile::altoTile)
+		// Depending of the direction of movement, move the NPC accordingly
+		switch (direccionActual)
+		{
+		case MOVE_UP:
+			posicionY = std::max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+			break;
+		case MOVE_DOWN:
+			posicionY = std::min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+			break;
+		case MOVE_LEFT:
+			posicionX = std::max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+			break;
+		case MOVE_RIGHT:
+			posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+			break;
+		}
+
+		// Update the collider
+		colisionador->x = posicionX;
+		colisionador->y = posicionY;
+
+		// Check if the NPC has moved to the next tile, if so, change his current tile
+		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
 			setTile(tileSiguiente);
 
-		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && getPosicionX() == tileSiguiente->getPosicionX() * Tile::anchoTile)
+		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
 			setTile(tileSiguiente);
-
 	}
+}
 
+bool Fantasma::AvoidInPathFinder(Tile* _tile)
+{
+	if (_tile->getPared() != nullptr)
+		return true;
+	return false;
 }
 

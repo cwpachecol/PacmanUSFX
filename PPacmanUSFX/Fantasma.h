@@ -9,6 +9,8 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "MoveDirection.h"
+#include "PathFinder.h"
+#include "Pacman.h"
 
 
 using namespace std;
@@ -35,6 +37,9 @@ private:
 	MoveDirection direccionSiguiente;
 
 	bool tratarDeMover(MoveDirection _direccionNueva);
+
+	vector<Tile*> camino;
+
 public:
 	//Constructores y destructores
 	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
@@ -58,4 +63,6 @@ public:
 		
 	// Actualizar datos fantasma
 	void update() override;
+
+	static bool AvoidInPathFinder(Tile* _tile);
 };
