@@ -39,8 +39,11 @@ private:
     list<GameObject*> lactoresJuego;
     MapGenerator* generadorNivelJuego;
     TextureManager* textureManager;
-public:
     GameManager();
+    static GameManager* instancia;
+public:
+    static GameManager* crearInstancia();
+
     int onExecute();
     bool onInit();
     void onEvent(SDL_Event* Event);

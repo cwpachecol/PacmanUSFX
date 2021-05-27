@@ -7,7 +7,10 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    GameManager theApp;
+    GameManager* theApp = GameManager::crearInstancia();
+   
+    return theApp->onExecute();
+    
 
-    return theApp.onExecute();
+
 }

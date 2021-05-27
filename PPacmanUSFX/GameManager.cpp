@@ -2,6 +2,17 @@
 
 using namespace std;
 
+GameManager* GameManager::instancia = nullptr;
+
+GameManager* GameManager::crearInstancia() {
+	if (instancia == nullptr) {
+		instancia = new GameManager();
+	}
+
+	return instancia;
+}
+
+
 GameManager::GameManager() {
 	gWindow = nullptr;
 	gRenderer = nullptr;
