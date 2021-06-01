@@ -1,92 +1,190 @@
+/*
+ * Example of `abstract factory' design pattern.
+ * Copyright (C) 2011 Radek Pazdera
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include <iostream>
+#include <string>
 using namespace std;
 
-class Shape {
-  public:
-    Shape() {
-      id_ = total_++;
-    }
-    virtual void draw() = 0;
-  protected:
-    int id_;
-    static int total_;
-};
-int Shape::total_ = 0;
+class Window
+{
+protected:
+	int width;
+	int height;
+	std::string toolkit;
+	std::string type;
 
-class Circle : public Shape {
-  public:
-    void draw() {
-      cout << "circle " << id_ << ": draw" << endl;
-    }
-};
-class Square : public Shape {
-  public:
-    void draw() {
-      cout << "square " << id_ << ": draw" << endl;
-    }
-};
-class Ellipse : public Shape {
-  public:
-    void draw() {
-      cout << "ellipse " << id_ << ": draw" << endl;
-    }
-};
-class Rectangle : public Shape {
-  public:
-    void draw() {
-      cout << "rectangle " << id_ << ": draw" << endl;
-    }
+	Window(std::string usedToolkit, std::string windowType)
+		: toolkit(usedToolkit), type(windowType)
+	{}
+
+public:
+	std::string getToolkit()
+	{
+		return toolkit;
+	}
+
+	std::string getType()
+	{
+		return type;
+	}
 };
 
-class Factory {
-  public:
-    virtual Shape* createCurvedInstance() = 0;
-    virtual Shape* createStraightInstance() = 0;
+class GtkToolboxWindow : public Window
+{
+public:
+	GtkToolboxWindow()
+		: Window("Gtk", "ToolboxWindow")
+	{}
 };
 
-class SimpleShapeFactory : public Factory {
-  public:
-    Shape* createCurvedInstance() {
-      return new Circle;
-    }
-    Shape* createStraightInstance() {
-      return new Square;
-    }
-};
-class RobustShapeFactory : public Factory {
-  public:
-    Shape* createCurvedInstance()   {
-      return new Ellipse;
-    }
-    Shape* createStraightInstance() {
-      return new Rectangle;
-    }
+class GtkLayersWindow : public Window
+{
+public:
+	GtkLayersWindow()
+		: Window("Gtk", "LayersWindow")
+	{}
 };
 
-int main() {
-//#ifdef SIMPLE
-//  Factory* factory = new SimpleShapeFactory;
-//#elif ROBUST
-//  Factory* factory = new RobustShapeFactory;
-//#endif
-  Factory* factory;
-  int tipo = 1;
-
-  if (tipo == 0) {
-      factory = new SimpleShapeFactory;
-  }
-  else {
-      factory = new RobustShapeFactory;
-  }
+class GtkMainWindow : public Window
+{
+public:
+	GtkMainWindow()
+		: Window("Gtk", "MainWindow")
+	{}
+};
 
 
-  Shape* shapes[3];
+class QtToolboxWindow : public Window
+{
+public:
+	QtToolboxWindow()
+		: Window("Qt", "ToolboxWindow")
+	{}
+};
 
-  shapes[0] = factory->createCurvedInstance();   // shapes[0] = new Ellipse;
-  shapes[1] = factory->createStraightInstance(); // shapes[1] = new Rectangle;
-  shapes[2] = factory->createCurvedInstance();   // shapes[2] = new Ellipse;
+class QtLayersWindow : public Window
+{
+public:
+	QtLayersWindow()
+		: Window("Qt", "LayersWindow")
+	{}
+};
 
-  for (int i=0; i < 3; i++) {
-    shapes[i]->draw();
-  }
+class QtMainWindow : public Window
+{
+public:
+	QtMainWindow()
+		: Window("Qt", "MainWindow")
+	{}
+};
+
+
+/* This is the abstract factory. */
+class UIFactory
+{
+public:
+	virtual Window* getToolboxWindow() = 0;
+	virtual Window* getLayersWindow() = 0;
+	virtual Window* getMainWindow() = 0;
+
+//	/*virtual GtkToolboxWindow* getGtkTooboxWindow() = 0;
+//	virtual GtkMainWindow* getGtkMainWindow() = 0;
+//	virtual GtkLayersWindow* getGtkLayerWindow() = 0;
+//	virtual QtToolboxWindow* getQkToboxWindow() = 0;
+//	virtual QtMainWindow* getQtMainWindow() = 0;
+//	virtual QtLayersWindow* getQtLayerWindow() = 0;
+//*/
+};
+
+/* Factory for Gtk toolkit */
+class GtkUIFactory : public UIFactory
+{
+public:
+	/*GtkToolboxWindow* getGtkTooboxWindow() {
+		return new GtkToolboxWindow;
+	}
+
+*/
+	Window* getToolboxWindow()
+	{
+		return new GtkToolboxWindow();
+	}
+
+	Window* getLayersWindow()
+	{
+		return new GtkLayersWindow();
+	}
+
+	Window* getMainWindow()
+	{
+		return new GtkMainWindow();
+	}
+};
+
+/* Factory for Qt toolkit */
+class QtUIFactory : public UIFactory
+{
+public:
+	Window* getToolboxWindow()
+	{
+		return new QtToolboxWindow();
+	}
+
+	Window* getLayersWindow()
+	{
+		return new QtLayersWindow();
+	}
+
+	Window* getMainWindow()
+	{
+		return new QtMainWindow();
+	}
+};
+
+int main()
+{
+	/*
+	QtMainWindow *qtprincipal = new QtMainWindow();
+	GtkMainWindow *gtkprincipal = new GtkMainWindow();
+	*/
+
+	UIFactory* ui = 0;
+
+	/* Check what environment is running
+	   and create appropriate factory. */
+	if (/* Gtk == */ true)
+	{
+		ui = new GtkUIFactory();
+	}
+	else
+	{
+		ui = new QtUIFactory();
+	}
+
+	/* Use the factory to build interface. */
+	Window* toolbox = ui->getToolboxWindow();
+	Window* layers = ui->getLayersWindow();
+	Window* main = ui->getMainWindow();
+
+	/* See what have we recieved. */
+	std::cout << toolbox->getToolkit() << ":"
+		<< toolbox->getType() << std::endl;
+
+	std::cout << layers->getToolkit() << ":"
+		<< layers->getType() << std::endl;
+
+	std::cout << main->getToolkit() << ":"
+		<< main->getType() << std::endl;
 }

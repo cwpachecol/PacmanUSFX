@@ -11,19 +11,19 @@ void MsPacman::handleEvent(SDL_Event* event)
 		switch (event->key.keysym.sym)
 		{
 			// Move up
-		case /*SDLK_UP:*/
+		/*case SDLK_UP:*/
 			case SDLK_w: direccionSiguiente = MOVE_UP; break;
 
 			// Move down
-		case /*SDLK_DOWN:*/
+		/*case SDLK_DOWN:*/
 			case SDLK_s: direccionSiguiente = MOVE_DOWN; break;
 
 			// Move left
-		case /*SDLK_LEFT:*/
+		/*case SDLK_LEFT:*/
 			case SDLK_a: direccionSiguiente = MOVE_LEFT; break;
 
 			// Move right
-		case /*SDLK_RIGHT:*/
+		/*case SDLK_RIGHT:*/
 			case SDLK_d: direccionSiguiente = MOVE_RIGHT; break;
 		}
 	}

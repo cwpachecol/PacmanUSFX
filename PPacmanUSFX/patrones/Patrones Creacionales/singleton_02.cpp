@@ -1,151 +1,77 @@
-﻿/*
- * Example of a singleton design pattern.
- * Copyright (C) 2011 Radek Pazdera
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
-
 #include <iostream>
+#include <string>
+#include <stdlib.h>
+using namespace std;
 
-class Singleton
+class Number
 {
-private:
-	/* Here will be the instance stored. */
-	static Singleton* instance;
-
-	/* Private constructor to prevent instancing. */
-	Singleton();
-
-public:
-	/* Static access method. */
-	static Singleton* getInstance();
+  public:
+    // 2. Define a public static accessor func
+    static Number* instance(); 
+    static void setType(string t)
+    {
+      type = t;
+      delete inst;
+      inst = 0;
+    }
+    virtual void setValue(int in)
+    {
+      value = in;
+    }
+    virtual int getValue()
+    {
+      return value;
+    }
+  protected:
+    int value;
+    // 4. Define all ctors to be protected
+    Number()
+    {
+        cout << ":ctor: ";
+    } 
+  // 1. Define a private static attribute
+  private:
+    static string type;
+    static Number *inst; 
 };
 
-/* Null, because instance will be initialized on demand. */
-Singleton* Singleton::instance = 0;
+string Number::type = "decimal";
+Number *Number::inst = 0;
 
-Singleton* Singleton::getInstance()
+class Octal: public Number
 {
-	if (instance == 0)
-	{
-		instance = new Singleton();
-	}
+  // 6. Inheritance can be supported
+  public:
+    friend class Number;
+    void setValue(int in)
+    {
+      char buf[10];
+      //sprintf(buf, "%o", in);
+      //sscanf(buf, "%d", &value);
+    }
+  protected:
+    Octal(){}
+};
 
-	return instance;
+Number *Number::instance()
+{
+  if (!inst)
+    // 3. Do "lazy initialization" in the accessor function
+    if (type == "octal")
+      inst = new Octal();
+    else
+      inst = new Number();
+  return inst;
 }
-
-Singleton::Singleton()
-{}
 
 int main()
 {
-	//new Singleton(); // Won't work
-	//Singleton* a = new Singleton();
-	Singleton* s = Singleton::getInstance(); // Ok
-	Singleton* r = Singleton::getInstance();
-
-	/* The addresses will be the same. */
-	std::cout << s << std::endl;
-	std::cout << r << std::endl;
-
-	system("pause");
+    // Number  myInstance; - error: cannot access protected constructor
+    // 5. Clients may only use the accessor function to manipulate the Singleton
+    
+    Number::instance()->setValue(42);
+    cout << "value is " << Number::instance()->getValue() << endl;
+    Number::setType("octal");
+    Number::instance()->setValue(64);
+    cout << "value is " << Number::instance()->getValue() << endl;
 }
-
-//
-//private:
-//	Singleton(const Singleton&);
-//	Singleton& operator=(const Singleton&);
-//
-//	Otherwise, you will be able to clone your object.If you are using C++ 11, you may leave the copy constructor and the copy assignment operator public but explicitly delete them:
-//
-//public:
-//	Singleton(const Singleton&) = delete;
-//	Singleton& operator=(const Singleton&) = delete;
-//
-//	@ProgrammerXDesigner
-//		ProgrammerXDesigner commented May 11, 2018
-//		Nice, but I have some notes here :
-//
-//	First, you have memory leak.
-//		And second, you should declare the copy constructor and the assignment operator of your class as private or delete them explicitly to prevent cloning your object.
-//		@akbarsaleemt
-//		akbarsaleemt commented Jul 30, 2018
-//		how can i access same object every time for my program
-//#include
-//		using namespace std;
-//	class student
-//	{
-//	private:
-//		int id;
-//		int marks;
-//	public:
-//		void adddata()
-//		{
-//			int i, mks;
-//			cout << "enter student marks and id:";
-//			cin >> i;
-//			cin >> mks;
-//			id = i;
-//			marks = mks;
-//			print();
-//		}
-//		void print()
-//		{
-//			cout << "student id num:" << id << endl;
-//			cout << "student marks:" << marks << endl;
-//		}
-//
-//	};
-//
-//	int main()
-//	{
-//		student s;
-//
-//		s.adddata();
-//
-//		x.adddata();
-//
-//		return 0;
-//	}
-//
-//#include <iostream>                                                              
-//
-//		class Singleton
-//	{
-//	private:
-//		/* Private constructor to prevent instancing. */
-//		Singleton();
-//
-//	public:
-//		/* Static access method. */
-//		static Singleton* getInstance();
-//	};
-//
-//	Singleton* Singleton::getInstance()
-//	{
-//		static Singleton instance;
-//
-//		return &instance;
-//	}
-//
-//	Singleton::Singleton()
-//	{}
-//
-//	int main()
-//	{
-//		//new Singleton(); // Won't work                                             
-//		Singleton* s = Singleton::getInstance(); // Ok                               
-//		Singleton* r = Singleton::getInstance();
-//
-//		/* The addresses will be the same. */
-//		std::cout << s << std::endl;
-//		std::cout << r << std::endl;
-//	}

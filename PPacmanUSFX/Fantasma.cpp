@@ -92,30 +92,32 @@ void Fantasma::update()
 		// In this way, it will dynamically follow Pacman
 		if (tileActual == tileSiguiente) {
 			// Get a camino to Pacman using A* algorithm
-			PathFinder astar(tileGraph);
-			astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
-			camino = astar.CalculateRoute(tileActual, pacman->getTile());
+			if (tileGraph->getPacman() != nullptr) {
+				PathFinder astar(tileGraph);
+				astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
+				camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
-			tileSiguiente = camino[1];
+				tileSiguiente = camino[1];
 
-			// All we really want to do after this is check the direction the NPC should go
-			if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
-				direccionActual = MOVE_RIGHT;
+				// All we really want to do after this is check the direction the NPC should go
+				if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
+					direccionActual = MOVE_RIGHT;
 
-			else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
-				direccionActual = MOVE_LEFT;
+				else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
+					direccionActual = MOVE_LEFT;
 
-			else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
-				direccionActual = MOVE_UP;
+				else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
+					direccionActual = MOVE_UP;
 
-			else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
-				direccionActual = MOVE_DOWN;
+				else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
+					direccionActual = MOVE_DOWN;
 
-			// Check if Fantasma collides with Pacman, if so delete Pacman
-			// TODO: There should be a Kill() method within Pacman, which will play death animation
-			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-				if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
-					tile->getPacman()->deleteGameObject();
+				// Check if Fantasma collides with Pacman, if so delete Pacman
+				// TODO: There should be a Kill() method within Pacman, which will play death animation
+				for (auto tile : tileGraph->get4Vecinos(tileActual)) {
+					if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
+						tile->getPacman()->deleteGameObject();
+					}
 				}
 			}
 		}

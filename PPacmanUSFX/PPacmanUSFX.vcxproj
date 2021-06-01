@@ -19,18 +19,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="FactoryPacmanClasico.cpp" />
+    <ClCompile Include="FactoryPacmanGalactico.cpp" />
     <ClCompile Include="Fantasma.cpp" />
+    <ClCompile Include="FantasmaGalactico.cpp" />
+    <ClCompile Include="FrutaGalactico.cpp" />
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Laberinto.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
+    <ClCompile Include="MazeObject.cpp" />
     <ClCompile Include="Moneda.cpp" />
-    <ClCompile Include="MsPacman.cpp" />
+    <ClCompile Include="MonedaGalactico.cpp" />
     <ClCompile Include="Pacman.cpp" />
+    <ClCompile Include="PacmanBase.cpp" />
+    <ClCompile Include="PacmanGalactico.cpp" />
     <ClCompile Include="Pared.cpp" />
+    <ClCompile Include="ParedGalactico.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="Pila.cpp" />
+    <ClCompile Include="SueloHielo.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureAnimation.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -38,19 +49,30 @@
     <ClCompile Include="TileGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Factory.h" />
+    <ClInclude Include="FactoryPacmanClasico.h" />
+    <ClInclude Include="FactoryPacmanGalactico.h" />
     <ClInclude Include="Fantasma.h" />
+    <ClInclude Include="FantasmaGalactico.h" />
+    <ClInclude Include="FrutaGalactico.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Laberinto.h" />
     <ClInclude Include="MapGenerator.h" />
+    <ClInclude Include="MazeObject.h" />
     <ClInclude Include="Moneda.h" />
+    <ClInclude Include="MonedaGalactico.h" />
     <ClInclude Include="MoveDirection.h" />
-    <ClInclude Include="MsPacman.h" />
     <ClInclude Include="Pacman.h" />
+    <ClInclude Include="PacmanBase.h" />
+    <ClInclude Include="PacmanGalactico.h" />
     <ClInclude Include="Pared.h" />
+    <ClInclude Include="ParedGalactico.h" />
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="PriorityQueue.h" />
+    <ClInclude Include="SueloHielo.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureAnimation.h" />
     <ClInclude Include="TextureManager.h" />

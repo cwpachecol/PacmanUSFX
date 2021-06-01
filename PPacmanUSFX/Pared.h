@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "MazeObject.h"
 #include "TileGraph.h"
 
 class Pared :

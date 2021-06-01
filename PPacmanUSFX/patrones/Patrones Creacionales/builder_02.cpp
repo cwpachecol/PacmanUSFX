@@ -1,174 +1,166 @@
-/*
- * Example of `builder' design pattern.
- * Copyright (C) 2011 Radek Pazdera
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
- */
+#include <iostream.h>
+#include <stdio.h>
+#include <string.h>
 
-
-#include <iostream>
-#include <string>
-
- /* Auto parts */
-class Neumatico
+enum PersistenceType
 {
-public:
-	int size;
+  File, Queue, Pathway
 };
 
-class Motor
+struct PersistenceAttribute
 {
-public:
-	int horsepower;
+  PersistenceType type;
+  char value[30];
 };
 
-class Carroceria
+class DistrWorkPackage
 {
-public:
-	std::string shape;
+  public:
+    DistrWorkPackage(char *type)
+    {
+        sprintf(_desc, "Distributed Work Package for: %s", type);
+    }
+    void setFile(char *f, char *v)
+    {
+        sprintf(_temp, "\n  File(%s): %s", f, v);
+        strcat(_desc, _temp);
+    }
+    void setQueue(char *q, char *v)
+    {
+        sprintf(_temp, "\n  Queue(%s): %s", q, v);
+        strcat(_desc, _temp);
+    }
+    void setPathway(char *p, char *v)
+    {
+        sprintf(_temp, "\n  Pathway(%s): %s", p, v);
+        strcat(_desc, _temp);
+    }
+    const char *getState()
+    {
+        return _desc;
+    }
+  private:
+    char _desc[200], _temp[80];
 };
 
-/* Final product -- a Auto */
-class Auto
-{
-public:
-	Neumatico*   Neumaticos[4];
-	Motor*  Motor;
-	Carroceria* Carroceria;
-	
-	void specifications()
-	{
-		std::cout << "Carroceria:" << Carroceria->shape << std::endl;
-		std::cout << "Motor horsepower:" << Motor->horsepower << std::endl;
-		std::cout << "tire size:" << Neumaticos[0]->size << "'" << std::endl;
-	}
-};
-
-/* Builder is responsible for constructing the smaller parts */
 class Builder
 {
-public:
-	virtual Neumatico* getNeumatico() = 0;
-	virtual Motor* getMotor() = 0;
-	virtual Carroceria* getCarroceria() = 0;
+  public:
+    virtual void configureFile(char*) = 0;
+    virtual void configureQueue(char*) = 0;
+    virtual void configurePathway(char*) = 0;
+    DistrWorkPackage *getResult()
+    {
+        return _result;
+    }
+  protected:
+    DistrWorkPackage *_result;
 };
 
-/* Director is responsible for the whole process */
-class Director
+class UnixBuilder: public Builder
 {
-private:
-	Builder* builder;
-
-public:
-	void setBuilder(Builder* newBuilder)
-	{
-		builder = newBuilder;
-	}
-
-	Auto* getCar()
-	{
-		Auto* Coche = new Auto();
-		
-		Coche->Carroceria = builder->getCarroceria();
-		Coche->Motor = builder->getMotor();
-		Coche->Neumaticos[0] = builder->getNeumatico();
-		Coche->Neumaticos[1] = builder->getNeumatico();
-		Coche->Neumaticos[2] = builder->getNeumatico();
-		Coche->Neumaticos[3] = builder->getNeumatico();
-
-		return Coche;
-	}
+  public:
+    UnixBuilder()
+    {
+        _result = new DistrWorkPackage("Unix");
+    }
+    void configureFile(char *name)
+    {
+        _result->setFile("flatFile", name);
+    }
+    void configureQueue(char *queue)
+    {
+        _result->setQueue("FIFO", queue);
+    }
+    void configurePathway(char *type)
+    {
+        _result->setPathway("thread", type);
+    }
 };
 
-/* Concrete Builder for Jeep SUV cars */
-class JeepBuilder : public Builder
+class VmsBuilder: public Builder
 {
-public:
-	Neumatico* getNeumatico()
-	{
-		Neumatico* neumatico = new Neumatico();
-		neumatico->size = 22;
-		return neumatico;
-	}
-
-	Motor* getMotor()
-	{
-		Motor* motor = new Motor();
-		motor->horsepower = 400;
-		return motor;
-	}
-
-	Carroceria* getCarroceria()
-	{
-		Carroceria* carroceria = new Carroceria();
-		carroceria->shape = "SUV";
-		return carroceria;
-	}
+  public:
+    VmsBuilder()
+    {
+        _result = new DistrWorkPackage("Vms");
+    }
+    void configureFile(char *name)
+    {
+        _result->setFile("ISAM", name);
+    }
+    void configureQueue(char *queue)
+    {
+        _result->setQueue("priority", queue);
+    }
+    void configurePathway(char *type)
+    {
+        _result->setPathway("LWP", type);
+    }
 };
 
-/* Concrete builder for Nissan family cars */
-class NissanBuilder : public Builder
+class Reader
 {
-public:
-	Neumatico* getNeumatico()
-	{
-		Neumatico* neumatico = new Neumatico();
-		neumatico->size = 16;
-		return neumatico;
-	}
-
-	Motor* getMotor()
-	{
-		Motor* motor = new Motor();
-		motor->horsepower = 85;
-		return motor;
-	}
-
-	Carroceria* getCarroceria()
-	{
-		Carroceria* carroceria = new Carroceria();
-		carroceria->shape = "hatchback";
-		return carroceria;
-	}
+  public:
+    void setBuilder(Builder *b)
+    {
+        _builder = b;
+    }
+    void construct(PersistenceAttribute[], int);
+  private:
+    Builder *_builder;
 };
 
+void Reader::construct(PersistenceAttribute list[], int num)
+{
+  for (int i = 0; i < num; i++)
+    if (list[i].type == File)
+      _builder->configureFile(list[i].value);
+    else if (list[i].type == Queue)
+      _builder->configureQueue(list[i].value);
+    else if (list[i].type == Pathway)
+      _builder->configurePathway(list[i].value);
+}
+
+const int NUM_ENTRIES = 6;
+PersistenceAttribute input[NUM_ENTRIES] = 
+{
+  {
+    File, "state.dat"
+  }
+  , 
+  {
+    File, "config.sys"
+  }
+  , 
+  {
+    Queue, "compute"
+  }
+  , 
+  {
+    Queue, "log"
+  }
+  , 
+  {
+    Pathway, "authentication"
+  }
+  , 
+  {
+    Pathway, "error processing"
+  }
+};
 
 int main()
 {
-	Auto* Auto; // Final product
+  UnixBuilder unixBuilder;
+  VmsBuilder vmsBuilder;
+  Reader reader;
 
-	/* A director who controls the process */
-	Director director;
+  reader.setBuilder(&unixBuilder);
+  reader.construct(input, NUM_ENTRIES);
+  cout << unixBuilder.getResult()->getState() << endl;
 
-	/* Concrete builders */
-	JeepBuilder jeepBuilder;
-	NissanBuilder nissanBuilder;
-
-	/* Build a Jeep */
-	std::cout << "Jeep" << std::endl;
-	director.setBuilder(&jeepBuilder); // using JeepBuilder instance
-	Auto = director.getCar();
-	Auto->specifications();
-
-	std::cout << std::endl;
-
-	/* Build a Nissan */
-	std::cout << "Nissan" << std::endl;
-	director.setBuilder(&nissanBuilder); // using NissanBuilder instance
-	Auto = director.getCar();
-	Auto->specifications();
-
-	system("pause");
-	return 0;
+  reader.setBuilder(&vmsBuilder);
+  reader.construct(input, NUM_ENTRIES);
+  cout << vmsBuilder.getResult()->getState() << endl;
 }
