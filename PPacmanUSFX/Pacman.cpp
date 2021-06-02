@@ -51,7 +51,15 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	velocidadPatron = _velocidadPatron;
 	posicionXEnTextura = 0;
 	posicionYEnTextura = 0;
+	energia = 5;
 }
+
+void Pacman::restarEnergia() {
+	if (energia > 0) {
+		energia--;
+	}
+}
+
 
 void Pacman::setTile(Tile* _tileNuevo) {
 	

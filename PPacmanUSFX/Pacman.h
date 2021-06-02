@@ -37,6 +37,8 @@ protected:
 	TextureAnimation* texturaAnimacion;
 	//static Pacman* instancia;
 
+	int energia;
+
 public:
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
@@ -53,16 +55,18 @@ public:
 	int getVelocidadPatron() { return velocidadPatron; }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
+	int getEnergia() { return energia; }
 
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
 	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
-
+	void setEnergia(int _energia) { energia = _energia; }
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
+	void restarEnergia();
 
 	// Manejador de eventos de pacman
 	void handleEvent(SDL_Event* event) override;
