@@ -19,7 +19,7 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 	direccionSiguiente = MOVE_RIGHT;
 
 	// Inicializa propiedade de de pacman
-	velocidadPatron = _velocidad;
+	velocidad = _velocidad;
 	energia = 5;
 }
 
@@ -54,3 +54,8 @@ void Pacman::handleEvent(SDL_Event* event)
 	}
 }
 
+void Pacman::RestarVida() {
+	if (vida > 0) {
+		vida--;
+	}
+}

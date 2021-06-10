@@ -1,21 +1,6 @@
 #pragma once
-//#include "GameObject.h"
+
 #include "Pacman.h"
-
-//class PacmanGalactico :
-//    public Pacman
-//{
-//protected:
-//	//PROPIEDADES
-//
-//
-//public:
-//    PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
-//   ~PacmanGalactico();
-//
-//};
-
-#pragma once
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -37,27 +22,6 @@ using namespace std;
 class PacmanGalactico :
 	public Pacman
 {
-protected:
-	//PROPIEDADES
-
-	Tile* tileActual;
-	Tile* tileSiguiente;
-
-	MoveDirection direccionActual;
-	MoveDirection direccionSiguiente;
-
-
-	// Velocidad a la que mueve el fantasma en cualquier eje
-	int velocidad;
-
-	int posicionXEnTextura;
-	int posicionYEnTextura;
-
-	int vida;
-	int portal;
-
-
-
 public:
 	//METODOS 
 
@@ -71,34 +35,16 @@ public:
 
 	//Metodos accesores
 
-	int getVelocidad() { return velocidad; }
-	Tile* getTile() { return tileActual; }
-	Tile* getTileSiguiente() { return tileSiguiente; }
-	int getVida() { return vida; }
-
-	int getPortales() { return portal; }
 
 
 	// Mark the object to be deleted
 	//void Delete();
-	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
-	void setTile(Tile* _tileNuevo);
-	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
-	void setVida(int _vida) { vida = _vida; }
-	void setPortales(int _portal) { portal = _portal; }
-
+	
 
 
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
-
-	//vida del pacman
-	void RestarVida();
-
-
-
-
 };
 
 

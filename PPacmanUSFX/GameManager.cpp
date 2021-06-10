@@ -19,6 +19,7 @@ GameManager::GameManager() {
 
 	juego_en_ejecucion = true;
 	tipoFabrica = new FactoryPacmanClasico;
+	//tipoFabrica = new FactoryPacmanGalactico;
 }
 
 int GameManager::onExecute() {

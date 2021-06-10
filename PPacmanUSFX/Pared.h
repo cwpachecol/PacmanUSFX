@@ -12,7 +12,7 @@ protected:
     int frameY;
     int altoClip;
     int anchoClip;
-    TipoTexturaPared tipoTexturaPared;
+    int tipoTexturaPared;
 public:
     Pared(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
     Tile* getTile() { return tileActual; }

@@ -23,22 +23,8 @@ class PacmanClasico :
 protected:
 	//PROPIEDADES
 
-	Tile* tileActual;
-	Tile* tileSiguiente;
-
-	MoveDirection direccionActual;
-	MoveDirection direccionSiguiente;
-
-
-	// Velocidad a la que mueve el fantasma en cualquier eje
-	int velocidad;
-
-	int posicionXEnTextura;
-	int posicionYEnTextura;
-
 	int vida;
 	int portal;
-
 
 public:
 	//METODOS 
@@ -51,33 +37,10 @@ public:
 	static const int Height = 25;
 
 
-	//Metodos accesores
-
-	int getVelocidad() { return velocidad; }
-	Tile* getTile() { return tileActual; }
-	Tile* getTileSiguiente() { return tileSiguiente; }
-	int getVida() { return vida; }
-
-	int getPortales() { return portal; }
-
-
-	// Mark the object to be deleted
-	//void Delete();
-	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
-	void setTile(Tile* _tileNuevo);
-	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
-	void setVida(int _vida) { vida = _vida; }
-	void setPortales(int _portal) { portal = _portal; }
-
-
-
-
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
 
 	//vida del pacman
-	void RestarVida();
-
-
+	
 
 };

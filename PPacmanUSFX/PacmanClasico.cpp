@@ -52,18 +52,8 @@ PacmanClasico::PacmanClasico(Tile* _tile, Texture* _texturaPacmanClasico, int _p
 
 
 	// Inicializa propiedade de de pacman
-	velocidadX = 0;
-	velocidadY = 0;
-	velocidadPatron = _velocidadPatron;
-	posicionXEnTextura = 0;
-	posicionYEnTextura = 0;
+	velocidad = _velocidad;
 	vida = 10;
-}
-
-void PacmanClasico::RestarVida() {
-	if (vida > 0) {
-		vida--;
-	}
 }
 
 
@@ -73,22 +63,4 @@ PacmanClasico::~PacmanClasico()
 {
 	//Free();
 }
-
-void PacmanClasico::setTile(Tile* _tileNuevo) {
-
-	if (tileActual != nullptr) {
-		tileActual->setPacman(nullptr);
-	}
-
-	tileActual = _tileNuevo;
-
-	if (tileActual != nullptr) {
-		tileActual->setPacman(this);
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-	}
-
-}
-
 

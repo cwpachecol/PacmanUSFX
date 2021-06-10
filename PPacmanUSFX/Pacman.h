@@ -24,20 +24,15 @@ protected:
 	MoveDirection direccionActual;
 	MoveDirection direccionSiguiente;
 		
-	// Velocidad en eje X e Y
-	int velocidadX;
-	int velocidadY;
-
-	// Velocidad a la que mueve el fantasma en cualquier eje
-	int velocidadPatron;
-
-	int posicionXEnTextura;
-	int posicionYEnTextura;
+	// Velocidad
+	int velocidad;
 
 	TextureAnimation* texturaAnimacion;
 	//static Pacman* instancia;
 
 	int energia;
+	int vida;
+	int portal;
 
 	int state;
 public:
@@ -45,6 +40,11 @@ public:
 
 	int getState() { return state; }
 	void setState(int _state) { state = _state; }
+	int getVida() { return vida; }
+	int getPortales() { return portal; }
+	void setVida(int _vida) { vida = _vida; }
+	void setPortales(int _portal) { portal = _portal; }
+	void RestarVida();
 
 //	static Pacman* crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
@@ -54,16 +54,12 @@ public:
 
 	//Metodos accesores
 
-	int getVelocidadX() { return velocidadX; }
-	int getVelocidadY() { return velocidadY; }
-	int getVelocidadPatron() { return velocidadPatron; }
+	int getVelocidad() { return velocidad; }
 	Tile* getTile() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
 	int getEnergia() { return energia; }
 
-	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
-	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
-	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
+	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
 	virtual void setTile(Tile* _tileNuevo) {};
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
 	void setEnergia(int _energia) { energia = _energia; }

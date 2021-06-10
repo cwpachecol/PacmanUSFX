@@ -29,7 +29,7 @@ void ParedAsesino::update() {
 					state = 0;
 					for (auto tile : tileGraph->get4Vecinos(tileActual)) {
 						if (tile != nullptr && tile->getPacman() != nullptr && tile->getPacman()->getState() == 2) {
-							tile->getPacman()->setVelocidadPatron(velocidadPacman);
+							tile->getPacman()->setVelocidad(velocidadPacman);
 							tile->getPacman()->setState(0);
 						}
 					}
@@ -41,7 +41,7 @@ void ParedAsesino::update() {
 		for (auto tile : tileGraph->get4Vecinos(tileActual)) {
 			if (tile != nullptr && tile->getPacman() != nullptr) {
 				tile->getPacman()->setState(2);
-				tile->getPacman()->setVelocidadPatron(0);
+				tile->getPacman()->setVelocidad(0);
 			}
 		}
 	}

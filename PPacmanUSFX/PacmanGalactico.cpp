@@ -9,8 +9,8 @@
 
 #include <stdio.h>
 
-PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacmanGalactico, int _posicionX, int _posicionY, int _velocidadPatron) :
-	Pacman(_tile, _texturaPacmanGalactico, _posicionX, _posicionY, _velocidadPatron)
+PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacmanGalactico, int _posicionX, int _posicionY, int _velocidad) :
+	Pacman(_tile, _texturaPacmanGalactico, _posicionX, _posicionY, _velocidad)
 {
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->setTexture(_texturaPacmanGalactico);
@@ -54,41 +54,12 @@ PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacmanGalactico, 
 
 
 	// Inicializa propiedade de de pacman
-	velocidadX = 0;
-	velocidadY = 0;
-	velocidadPatron = _velocidadPatron;
-	posicionXEnTextura = 0;
-	posicionYEnTextura = 0;
+	velocidad = _velocidad;
 	vida = 10;
 }
-
-void PacmanGalactico::RestarVida() {
-	if (vida > 0) {
-		vida--;
-	}
-}
-
-
 
 //DESTRUCTOR y deja un espacio libre 
 PacmanGalactico::~PacmanGalactico()
 {
 	//Free();
-}
-
-void PacmanGalactico::setTile(Tile* _tileNuevo) {
-
-	if (tileActual != nullptr) {
-		tileActual->setPacman(nullptr);
-	}
-
-	tileActual = _tileNuevo;
-
-	if (tileActual != nullptr) {
-		tileActual->setPacman(this);
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-	}
-
 }
