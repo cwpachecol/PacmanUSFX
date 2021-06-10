@@ -39,9 +39,6 @@
     <ClCompile Include="MapGenerator.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Pila.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="Pared.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -60,15 +57,6 @@
     <ClCompile Include="PathFinder.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Laberinto.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="MazeObject.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="SueloHielo.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="PacmanBase.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -79,9 +67,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ParedGalactico.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="FrutaGalactico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="MonedaGalactico.cpp">
@@ -108,19 +93,22 @@
     <ClCompile Include="FantasmaClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="FrutaClasica.cpp">
+    <ClCompile Include="FrutaAsesino.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="FrutaGalactica.cpp">
+    <ClCompile Include="FrutaClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="MonedaBase.cpp">
+    <ClCompile Include="FrutaGalactico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="MonedaClasica.cpp">
+    <ClCompile Include="MonedaClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ParedClasica.cpp">
+    <ClCompile Include="ParedAsesino.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="ParedClasico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -147,9 +135,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="MapGenerator.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Pila.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Pared.h">
@@ -179,12 +164,6 @@
     <ClInclude Include="Laberinto.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="MazeObject.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="SueloHielo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="PacmanBase.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -195,9 +174,6 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ParedGalactico.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="FrutaGalactico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="MonedaGalactico.h">
@@ -221,19 +197,22 @@
     <ClInclude Include="FantasmaClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="FrutaGalactica.h">
+    <ClInclude Include="FrutaAsesino.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="FrutaClasica.h">
+    <ClInclude Include="FrutaClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="MonedaBase.h">
+    <ClInclude Include="FrutaGalactico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="MonedaClasica.h">
+    <ClInclude Include="MonedaClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ParedClasica.h">
+    <ClInclude Include="ParedAsesino.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ParedClasico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,8 +1,8 @@
 #include "FantasmaAsesino.h"
 
-FantasmaAsesino::FantasmaAsesino(Tile* _tile, Texture* _fantasmaAsesinoTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
+FantasmaAsesino::FantasmaAsesino(Tile* _tile, Texture* _fantasmaAsesinoTextura, int _posicionX, int _posicionY, int _velocidadPatron) :
 	
-	Fantasma(_tile, _fantasmaAsesinoTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _velocidadPatron)
+	Fantasma(_tile, _fantasmaAsesinoTextura, _posicionX, _posicionY,  _velocidadPatron)
 
 
 {
@@ -47,7 +47,7 @@ void FantasmaAsesino::update()
 		if (tileActual == tileSiguiente) {
 			// cnsigue el camino para seguir a pacman
 			PathFinder astar(tileGraph);
-			astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
+			astar.SetAvoidFunction(Fantasma::avoidInPathFinder);
 			camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
 			if (camino.size() > 1) {
@@ -69,8 +69,8 @@ void FantasmaAsesino::update()
 			
 
 			for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-				if (tile->getPacman() != nullptr && VerColision(tile->getPacman()->getColision())) {
-					tile->getPacman()->Delete();
+				if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
+					tile->getPacman()->deleteGameObject();
 				}
 			}
 
@@ -95,8 +95,8 @@ void FantasmaAsesino::update()
 		}
 
 		// Actualizar la colision
-		colision.x = posicionX;
-		colision.y = posicionY;
+		colisionador->x = posicionX;
+		colisionador->y = posicionY;
 		/*setTile(tileSiguiente);*/
 
 

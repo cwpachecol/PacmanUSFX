@@ -1,11 +1,10 @@
-#include "FrutaGalactico.h"
-
+#include "FrutaClasico.h"
 using namespace std;
+FrutaClasico::FrutaClasico(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY):
+	Fruta(_tile, _frutaTexture, _posicionX, _posicionY){}
 
-FrutaGalactico::FrutaGalactico(Tile* _tile, Texture* _frutaTextura, int _posicionX, int _posicionY):
-	Fruta(_tile, _frutaTextura, _posicionX, _posicionY){}
 
-void FrutaGalactico::update()
+void FrutaClasico::update()
 {
 	if (contadorTiempoVisible >= tiempoVisible) {
 		visible = false;

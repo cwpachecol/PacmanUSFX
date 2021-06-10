@@ -38,7 +38,8 @@ protected:
 	//static Pacman* instancia;
 
 	int energia;
-
+	int state;
+	
 public:
 	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
 
@@ -49,6 +50,9 @@ public:
 	//~Pacman();
 
 	//Metodos accesores
+	int getState() { return state; }
+	void setState(int _state) { state = _state; }
+
 
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }

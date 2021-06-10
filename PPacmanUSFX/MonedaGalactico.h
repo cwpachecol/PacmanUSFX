@@ -1,10 +1,10 @@
 #pragma once
-#include "MonedaBase.h"
+#include "Moneda.h"
 class MonedaGalactico :
-    public MonedaBase
+    public Moneda
 {
 public:
-    MonedaGalactico(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+    MonedaGalactico(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY);
 
 };
 

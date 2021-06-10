@@ -3,7 +3,7 @@
 #include "Pared.h"
 #include "Pacman.h"
 
-class ParedGalactico :  public Pared
+class ParedAsesino : public Pared
 {
 private:
     int velocidadPacman;
@@ -16,7 +16,6 @@ private:
     const int electricTime = 50;
     const int notElectricTime = 100;
 public:
-     ParedGalactico(bool _isElectrica, int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
-     void update();
+    ParedAsesino(bool _isElectrica, int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
+    void update();
 };
-

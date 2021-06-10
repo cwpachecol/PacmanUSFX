@@ -14,7 +14,7 @@ private:
 
 public:
 
-    FantasmaAsesino(Tile* _tile, Texture* _fantasmaAsesinoTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
+    FantasmaAsesino(Tile* _tile, Texture* _fantasmaAsesinoTextura, int _posicionX, int _posicionY, int _velocidadPatron);
     Tile* getTile() { return tileActual; }
     Tile* getTileSiguiente() { return tileSiguiente; }
     void setTile(Tile* _tileNuevo);

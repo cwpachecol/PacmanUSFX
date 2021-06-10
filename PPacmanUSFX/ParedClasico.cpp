@@ -1,7 +1,7 @@
-#include "ParedClasica.h"
+#include "ParedClasico.h"
 
-ParedClasica::ParedClasica(int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla)
-	:Pared(tipo, _tile, _paredTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+ParedClasico::ParedClasico(int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY)
+	:Pared(tipo, _tile, _paredTextura, _posicionX, _posicionY)
 {
 	tiempoVisible = 0;
 	tiempoNoVisible = 0;
@@ -10,7 +10,7 @@ ParedClasica::ParedClasica(int tipo, Tile* _tile, Texture* _paredTextura, int _p
 	cont = 0;
 }
 
-void ParedClasica::update() {
+void ParedClasico::update() {
 	//if (contadorTiempoVisible >= tiempoVisible) {
 	//	visible = false;
 	//	if (contadorTiempoNoVisible >= tiempoNoVisible) {

@@ -1,7 +1,7 @@
-#include "ParedGalactico.h"
+#include "ParedAsesino.h"
 
-ParedGalactico::ParedGalactico(bool _isElectrica, int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY)
-:Pared(tipo,  _tile,  _paredTextura,  _posicionX, _posicionY)
+ParedAsesino::ParedAsesino(bool _isElectrica, int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY)
+	:Pared(tipo, _tile, _paredTextura, _posicionX, _posicionY)
 {
 	isElectrica = _isElectrica;
 	tileActual = _tile;
@@ -9,7 +9,7 @@ ParedGalactico::ParedGalactico(bool _isElectrica, int tipo, Tile* _tile, Texture
 	state = 0;
 }
 
-void ParedGalactico::update() {
+void ParedAsesino::update() {
 	if (isElectrica) {
 		velocidadPacman = 5;
 		if (cont2 <= notElectricTime) {

@@ -2,7 +2,7 @@
 
 #include "Tile.h"
 #include "Pared.h"
-class ParedClasica :
+class ParedClasico :
 	public Pared
 {
 private:
@@ -13,7 +13,7 @@ private:
 	int contadorTiempoVisible;
 	int contadorTiempoNoVisible;
 public:
-	ParedClasica(int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	ParedClasico(int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
 	void update();
 };
 

@@ -2,8 +2,8 @@
 #include "PacmanGalactico.h"
 
 
-PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad) :
+	GameObject(_texturaPacman, _posicionX, _posicionY)
 {
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->setTexture(_texturaPacman);
@@ -36,11 +36,7 @@ PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posi
 
 
 	// Inicializa propiedade de de pacman
-	velocidadX = 0;
-	velocidadY = 0;
-	velocidadPatron = _velocidadPatron;
-	posicionXEnTextura = 0;
-	posicionYEnTextura = 0;
+	velocidad = _velocidad;
 	energia = 5;
 }
 
@@ -54,7 +50,7 @@ void PacmanGalactico::restarEnergia() {
 void PacmanGalactico::setTile(Tile* _tileNuevo) {
 
 	if (tileActual != nullptr) {
-		tileActual->setPacmanGalactico(nullptr);
+		tileActual->setPacman(nullptr);
 	}
 
 	tileActual = _tileNuevo;
@@ -170,16 +166,16 @@ void PacmanGalactico::update()
 		switch (direccionActual)
 		{
 		case MOVE_UP:
-			posicionY = std::max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+			posicionY = std::max(posicionY - velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
 		case MOVE_DOWN:
-			posicionY = std::min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+			posicionY = std::min(posicionY + velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
 		case MOVE_LEFT:
-			posicionX = std::max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+			posicionX = std::max(posicionX - velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		case MOVE_RIGHT:
-			posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+			posicionX = std::min(posicionX + velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
 
@@ -220,5 +216,5 @@ void PacmanGalactico::render()
 void PacmanGalactico::deleteGameObject()
 {
 	GameObject::deleteGameObject();
-	tileActual->setPacmanGalactico(nullptr);
+	tileActual->setPacman(nullptr);
 }

@@ -3,8 +3,8 @@
 
 using namespace std;
 
-Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_fantasmaTexture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _velocidadPatron) :
+	GameObject(_fantasmaTexture, _posicionX, _posicionY)
 {
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->setTexture(_fantasmaTexture);
@@ -44,8 +44,6 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _
 	posicionXDestino = getPosicionX();
 	posicionYDestino = getPosicionY();
 
-	velocidadX = 1;
-	velocidadY = 1;
 	velocidadPatron = _velocidadPatron;
 }
 
@@ -135,20 +133,7 @@ void Fantasma::update()
 				}
 			}
 
-			/*for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-				if (tile->getPacman() != nullptr && !VerColision(tile->getPacman()->getColision())) {
-					tile->getPacman()->Delete();
-				}
-			}*/
-
-			/*for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-				if (tile->getPacman() != nullptr && !VerColision(tile->getPacman()->getColision())) {
-					if (tile->getPacman()->getActual() == 0)
-						tile->getPacman()->Delte();
-					else if (tile->getPacman()->getActual() == 1)
-						Delete();
-				}
-			}*/
+			
 		}
 
 		// Dependiendo a la direccion de movimiento, mueve el NPC cordinadamente
