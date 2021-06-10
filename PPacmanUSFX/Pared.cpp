@@ -1,14 +1,18 @@
 #include "Pared.h"
 
-Pared::Pared(int _tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY):
+Pared::Pared(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY):
 GameObject(_paredTextura, _posicionX, _posicionY){
-	setTexture(_tipo);
+	tipoTexturaPared = TEXTURA_UNO;
+	setTexture(tipoTexturaPared);
 	tileActual = _tile;
 	if (tileActual != nullptr) {
 		tileActual->setPared(this);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+
+		ancho = Tile::anchoTile;
+		alto = Tile::altoTile;
 	}
 	else {
 		posicionX = 0;

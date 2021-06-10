@@ -13,7 +13,7 @@ private:
 	int contadorTiempoVisible;
 	int contadorTiempoNoVisible;
 public:
-	ParedClasico(int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
+	ParedClasico(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
 	void update();
 };
 

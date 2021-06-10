@@ -38,13 +38,10 @@ protected:
 	//static Pacman* instancia;
 
 	int energia;
-
 	int state;
+	
 public:
-	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad);
-
-	int getState() { return state; }
-	void setState(int _state) { state = _state; }
+	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
 
 //	static Pacman* crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
@@ -53,6 +50,9 @@ public:
 	//~Pacman();
 
 	//Metodos accesores
+	int getState() { return state; }
+	void setState(int _state) { state = _state; }
+
 
 	int getVelocidadX() { return velocidadX; }
 	int getVelocidadY() { return velocidadY; }
@@ -64,22 +64,22 @@ public:
 	void setVelocidadX(int _velocidadX) { velocidadX = _velocidadX; }
 	void setVelocidadY(int _velocidadY) { velocidadY = _velocidadY; }
 	void setVelocidadPatron(int _velocidadPatron) { velocidadPatron = _velocidadPatron; }
-	virtual void setTile(Tile* _tileNuevo) {};
+	void setTile(Tile* _tileNuevo);
 	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
 	void setEnergia(int _energia) { energia = _energia; }
 
 	// Metodos varios
-	//virtual bool tratarDeMover(MoveDirection _direccionNueva) {};
+	bool tratarDeMover(MoveDirection _direccionNueva);
 	void restarEnergia();
 
 	// Manejador de eventos de pacman
-	virtual void handleEvent(SDL_Event* event);
+	void handleEvent(SDL_Event* event) override;
 	// Mover pacman
-	virtual void update() {};
+	void update() override;
 	// Renderizar imagen pacman
-	virtual void render() {};
+	void render() override;
 	//void update();
-	virtual void deleteGameObject() {};
+	void deleteGameObject() override;
 
 };
 

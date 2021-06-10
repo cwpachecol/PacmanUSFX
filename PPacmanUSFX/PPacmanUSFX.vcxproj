@@ -40,6 +40,7 @@
     <ClCompile Include="MonedaGalactico.cpp" />
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="PacmanBase.cpp" />
+    <ClCompile Include="PacmanClasico.cpp" />
     <ClCompile Include="PacmanGalactico.cpp" />
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="ParedAsesino.cpp" />
@@ -75,6 +76,7 @@
     <ClInclude Include="MoveDirection.h" />
     <ClInclude Include="Pacman.h" />
     <ClInclude Include="PacmanBase.h" />
+    <ClInclude Include="PacmanClasico.h" />
     <ClInclude Include="PacmanGalactico.h" />
     <ClInclude Include="Pared.h" />
     <ClInclude Include="ParedAsesino.h" />
@@ -87,6 +89,7 @@
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />
+    <ClInclude Include="TipoTexturaPared.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Clyde.bmp" />

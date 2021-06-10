@@ -1,8 +1,9 @@
 #include "ParedGalactico.h"
 
-ParedGalactico::ParedGalactico(bool _isElectrica, int tipo, Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY)
-:Pared(tipo,  _tile,  _paredTextura,  _posicionX, _posicionY)
+ParedGalactico::ParedGalactico(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY, bool _isElectrica)
+:Pared(_tile,  _paredTextura,  _posicionX, _posicionY)
 {
+	tipoTexturaPared = TEXTURA_NUEVE;
 	isElectrica = _isElectrica;
 	tileActual = _tile;
 	isGalactico = true;

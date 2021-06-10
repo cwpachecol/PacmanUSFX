@@ -1,21 +1,4 @@
 #pragma once
-//#include "GameObject.h"
-#include "Pacman.h"
-
-//class PacmanGalactico :
-//    public Pacman
-//{
-//protected:
-//	//PROPIEDADES
-//
-//
-//public:
-//    PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron);
-//   ~PacmanGalactico();
-//
-//};
-
-#pragma once
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -34,7 +17,7 @@
 
 using namespace std;
 
-class PacmanGalactico :
+class PacmanClasico :
 	public Pacman
 {
 protected:
@@ -57,13 +40,12 @@ protected:
 	int portal;
 
 
-
 public:
 	//METODOS 
 
 	//Constructores y destructores
-	PacmanGalactico(Tile* _tile, Texture* _texturaPacmanClasico, int _posicionX, int _posicionY, int _velocidad);
-	~PacmanGalactico();
+	PacmanClasico(Tile* _tile, Texture* _texturaPacmanClasico, int _posicionX, int _posicionY, int _velocidad);
+	~PacmanClasico();
 
 	static const int Width = 25;
 	static const int Height = 25;
@@ -98,7 +80,4 @@ public:
 
 
 
-
 };
-
-

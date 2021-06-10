@@ -1,19 +1,17 @@
-#include "PacmanGalactico.h"
-//
-//PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron) 
+#include "PacmanClasico.h"
+
+//PacmanClasico::PacmanClasico(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron)
 //	:GameObject(_texturaPacman, _posicionX, _posicionY)
 //{
-//
-//
 //}
 
 #include <stdio.h>
-
-PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacmanGalactico, int _posicionX, int _posicionY, int _velocidadPatron) :
-	Pacman(_tile, _texturaPacmanGalactico, _posicionX, _posicionY, _velocidadPatron)
+//#include "Pacman.h"
+PacmanClasico::PacmanClasico(Tile* _tile, Texture* _texturaPacmanClasico, int _posicionX, int _posicionY, int _velocidad) :
+	Pacman(_tile, _texturaPacmanClasico, _posicionX, _posicionY, _velocidad)
 {
 	texturaAnimacion = new TextureAnimation();
-	texturaAnimacion->setTexture(_texturaPacmanGalactico);
+	texturaAnimacion->setTexture(_texturaPacmanClasico);
 	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
 	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
 	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
@@ -62,7 +60,7 @@ PacmanGalactico::PacmanGalactico(Tile* _tile, Texture* _texturaPacmanGalactico, 
 	vida = 10;
 }
 
-void PacmanGalactico::RestarVida() {
+void PacmanClasico::RestarVida() {
 	if (vida > 0) {
 		vida--;
 	}
@@ -71,12 +69,12 @@ void PacmanGalactico::RestarVida() {
 
 
 //DESTRUCTOR y deja un espacio libre 
-PacmanGalactico::~PacmanGalactico()
+PacmanClasico::~PacmanClasico()
 {
 	//Free();
 }
 
-void PacmanGalactico::setTile(Tile* _tileNuevo) {
+void PacmanClasico::setTile(Tile* _tileNuevo) {
 
 	if (tileActual != nullptr) {
 		tileActual->setPacman(nullptr);
@@ -92,3 +90,5 @@ void PacmanGalactico::setTile(Tile* _tileNuevo) {
 	}
 
 }
+
+
