@@ -3,23 +3,23 @@
 int GameObject::numeroObjetosCreados = 0;
 TileGraph* GameObject::tileGraph = nullptr;
 
-GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) {
+GameObject::GameObject(Texture* _textura, int _posicionX, int _posicionY) {
+	textura = _textura;
 	posicionX = _posicionX;
 	posicionY = _posicionY;
-	ancho = _ancho;
-	alto = _alto;
-	anchoPantalla = _anchoPantalla;
-	altoPantalla = _altoPantalla;
+	alto = 0;
+	ancho = 0;
 	visible = true;
 	eliminar = false;
 	enMovimiento = false;
 	numeroObjetosCreados++;
 	idObjeto = numeroObjetosCreados;
-	textura = _textura;
+	
+
 	numeroFrame = 0;
 	contadorFrames = 0;
 	framesMovimiento = 1;
-	colisionador = new SDL_Rect({ _posicionX, _posicionY, _ancho, _alto });
+	colisionador = new SDL_Rect({ _posicionX, _posicionY, ancho, alto});
 }
 
 void GameObject::render()

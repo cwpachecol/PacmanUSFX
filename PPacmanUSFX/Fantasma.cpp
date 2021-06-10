@@ -3,8 +3,8 @@
 
 using namespace std;
 
-Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_fantasmaTexture, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _velocidadPatron) :
+	GameObject(_fantasmaTexture, _posicionX, _posicionY)
 {
 	tileActual = _tile;
 	tileSiguiente = nullptr;
@@ -15,6 +15,9 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+
+		ancho = Tile::anchoTile;
+		alto = Tile::altoTile;
 	}
 	else {
 		posicionX = 0;

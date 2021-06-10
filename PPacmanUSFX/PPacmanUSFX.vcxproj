@@ -28,6 +28,7 @@
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GamePanel.cpp" />
     <ClCompile Include="Laberinto.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
@@ -58,6 +59,7 @@
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GamePanel.h" />
     <ClInclude Include="Laberinto.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="MazeObject.h" />

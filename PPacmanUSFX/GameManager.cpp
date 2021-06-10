@@ -28,7 +28,7 @@ int GameManager::onExecute() {
 		
 	srand(time(nullptr));
 
-	TileGraph tileGraphGM(20, 15);
+	TileGraph tileGraphGM(20, 15, 800, 600);
 	textureManager = new TextureManager();
 	GameObject::tileGraph = &tileGraphGM;
 	generadorNivelJuego = new MapGenerator(&tileGraphGM, textureManager, SCREEN_WIDTH, SCREEN_HEIGHT, tipoFabrica);
@@ -104,6 +104,10 @@ bool GameManager::onInit() {
 			{
 				//Initialize renderer color
 				SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+				if (TTF_Init()== -1) {
+					cout << "Error inicializacion SDL_ttf" << TTF_GetError() << endl;
+					success = false;
+				}
 			}
 
 			Texture::renderer = gRenderer;

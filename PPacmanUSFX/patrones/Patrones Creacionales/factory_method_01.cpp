@@ -34,6 +34,19 @@ public:
 	static Copa* getCopa(string color);
 };
 
+Copa* Copa::getCopa(std::string color)
+{
+	if (color == "rojo")
+		return new CopaRoja();
+	else if (color == "azul")
+		return new CopaAzul();
+	else
+		return NULL;
+}
+
+
+
+
 class CopaRoja : public Copa
 {
 public:
@@ -54,16 +67,6 @@ public:
 	void Mostrar() { std::cout << "MOSTRAR COPA AZUL" << std::endl; }
 	void Colorear() { std::cout << "COLOREANDO AZUL " << std::endl; }
 };
-
-Copa* Copa::getCopa(std::string color)
-{
-	if (color == "rojo")
-		return new CopaRoja();
-	else if (color == "azul")
-		return new CopaAzul();
-	else
-		return NULL;
-}
 
 
 /* A little testing */

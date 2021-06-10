@@ -10,7 +10,7 @@ class FactoryPacmanClasico :
     public Factory
 {
 public:
-    GameObject* createPacmanInstance(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) override;
+    GameObject* createPacmanInstance(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron) override;
     
  /*   GameObject* createFantasmaInstance() {
         return new Fantasma;

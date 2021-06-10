@@ -12,8 +12,8 @@
 //
 //}
 
-Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) :
-	GameObject(_texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla)
+Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidadPatron) :
+	GameObject(_texturaPacman, _posicionX, _posicionY)
 {
 	texturaAnimacion = new TextureAnimation();
 	texturaAnimacion->setTexture(_texturaPacman);
@@ -34,6 +34,8 @@ Pacman::Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posici
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+		ancho = Tile::anchoTile;
+		alto = Tile::altoTile;
 	}
 	else {
 		posicionX = 0;

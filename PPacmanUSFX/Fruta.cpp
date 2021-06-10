@@ -1,13 +1,17 @@
 #include "Fruta.h"
+#include "Tile.h"
+
 #include <iostream>
 
 using namespace std;
 
-Fruta::Fruta(Texture* _frutaTextura, int _posicionX, int _posicionY,
-	int _ancho, int _alto, int _anchoPantalla, int _altoPantalla) :
-	GameObject(_frutaTextura, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla){
+Fruta::Fruta(Texture* _frutaTextura, int _posicionX, int _posicionY) :
+	GameObject(_frutaTextura, _posicionX, _posicionY){
 	// Inicializa propiedade de la fruta
 	tipoFruta = TIPO_FRUTA_GUINDA;
+
+	ancho = Tile::anchoTile;
+	alto = Tile::altoTile;
 
 	visible = false;
 
@@ -24,8 +28,8 @@ void Fruta::update()
 	if (contadorTiempoVisible >= tiempoVisible) {
 		visible = false;
 		if (contadorTiempoNoVisible >= tiempoNoVisible) {
-			posicionX = 1 + rand() % anchoPantalla;
-			posicionY = 1 + rand() % altoPantalla;
+			posicionX = 1 + rand() % tileGraph->anchoPantalla;
+			posicionY = 1 + rand() % tileGraph->altoPantalla;
 			contadorTiempoVisible = 0;
 			contadorTiempoNoVisible = 0;
 			visible = true;

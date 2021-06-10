@@ -2,8 +2,9 @@
 #include <iostream>
 #include <vector>
 #include <SDL.h>
-
+#include "Tile.h"
 #include "GameObject.h"
+#include "TileGraph.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ private:
 
 public:
 	//Constructores y destructores
-	Fruta(Texture* _frutaTextura, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla);
+	Fruta(Texture* _frutaTextura, int _posicionX, int _posicionY);
 	//~Fruta();
 
 	//Metodos accesores

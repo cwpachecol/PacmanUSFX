@@ -20,7 +20,7 @@
 #include "FactoryPacmanGalactico.h"
 #include "Factory.h"
 
-
+#include "GamePanel.h"
 using namespace std;
 
 class MapGenerator

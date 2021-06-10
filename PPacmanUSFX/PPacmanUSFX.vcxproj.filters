@@ -75,9 +75,6 @@
     <ClCompile Include="PacmanGalactico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="FantasmaGalactico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -97,6 +94,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="FactoryPacmanGalactico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="GamePanel.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -186,6 +189,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="FactoryPacmanGalactico.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePanel.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
