@@ -100,58 +100,63 @@ void Fantasma::update()
 				astar.SetAvoidFunction(Fantasma::AvoidInPathFinder);
 				camino = astar.CalculateRoute(tileActual, pacman->getTile());
 
-				tileSiguiente = camino[1];
+				if (camino.size() > 1) {
+					tileSiguiente = camino[1];
 
-				// All we really want to do after this is check the direction the NPC should go
-				if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
-					direccionActual = MOVE_RIGHT;
+					// All we really want to do after this is check the direction the NPC should go
+					if (posicionX < tileSiguiente->getPosicionX() * Tile::anchoTile)
+						direccionActual = MOVE_RIGHT;
 
-				else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
-					direccionActual = MOVE_LEFT;
+					else if (posicionX > tileSiguiente->getPosicionX() * Tile::anchoTile)
+						direccionActual = MOVE_LEFT;
 
-				else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
-					direccionActual = MOVE_UP;
+					else if (posicionY > tileSiguiente->getPosicionY() * Tile::anchoTile)
+						direccionActual = MOVE_UP;
 
-				else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
-					direccionActual = MOVE_DOWN;
+					else if (posicionY < tileSiguiente->getPosicionY() * Tile::anchoTile)
+						direccionActual = MOVE_DOWN;
 
-				// Check if Fantasma collides with Pacman, if so delete Pacman
-				// TODO: There should be a Kill() method within Pacman, which will play death animation
-				for (auto tile : tileGraph->get4Vecinos(tileActual)) {
-					if (tile->getPacman() != nullptr && revisarColision(tile->getPacman()->getColisionador())) {
-						tile->getPacman()->deleteGameObject();
+					// Check if Fantasma collides with Pacman, if so delete Pacman
+					// TODO: There should be a Kill() method within Pacman, which will play death animation
+					if (revisarColision(pacman->getColisionador())) {
+						pacman->restarEnergia();
+						if (pacman->getEnergia() <= 0) {
+							tileActual->setPacman(nullptr);
+							pacman->deleteGameObject();
+						}
 					}
 				}
 			}
 		}
 
-		// Depending of the direction of movement, move the NPC accordingly
-		switch (direccionActual)
-		{
-		case MOVE_UP:
-			posicionY = std::max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
-			break;
-		case MOVE_DOWN:
-			posicionY = std::min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
-			break;
-		case MOVE_LEFT:
-			posicionX = std::max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
-			break;
-		case MOVE_RIGHT:
-			posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
-			break;
-		}
+			// Depending of the direction of movement, move the NPC accordingly
+			switch (direccionActual)
+			{
+			case MOVE_UP:
+				posicionY = std::max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+				break;
+			case MOVE_DOWN:
+				posicionY = std::min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+				break;
+			case MOVE_LEFT:
+				posicionX = std::max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+				break;
+			case MOVE_RIGHT:
+				posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+				break;
+			}
 
-		// Update the collider
-		colisionador->x = posicionX;
-		colisionador->y = posicionY;
+			// Update the collider
+			colisionador->x = posicionX;
+			colisionador->y = posicionY;
 
-		// Check if the NPC has moved to the next tile, if so, change his current tile
-		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
-			setTile(tileSiguiente);
+			// Check if the NPC has moved to the next tile, if so, change his current tile
+			if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
+				setTile(tileSiguiente);
 
-		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
-			setTile(tileSiguiente);
+			if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
+				setTile(tileSiguiente);
+		
 	}
 }
 
