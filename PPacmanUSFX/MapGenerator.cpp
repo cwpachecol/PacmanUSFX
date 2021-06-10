@@ -47,10 +47,8 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(4);
 				break;
 			case 'p':
-				//objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 5);
-
-				//objetoNuevo = new Pacman(tileNuevo, textureManager->getTexture("pacman"), x * 25, y * 25, 25, 25, anchoPantalla, altoPantalla, 5);
-				//objetoNuevo->setParametrosAnimacion(2);
+				objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, x * 25, y * 25, 5);
+				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'a':
 				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 1);
