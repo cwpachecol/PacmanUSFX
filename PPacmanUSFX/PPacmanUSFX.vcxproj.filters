@@ -81,9 +81,6 @@
     <ClCompile Include="FactoryPacmanGalactico.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="GamePanel.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -112,6 +109,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PacmanClasico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

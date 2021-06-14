@@ -23,6 +23,8 @@ class Prototype
 protected:
 	string type;
 	int value;
+	/*int posicionX;
+	int posicionY;*/
 
 public:
 	virtual Prototype* clone() = 0;
