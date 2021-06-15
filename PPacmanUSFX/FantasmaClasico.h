@@ -8,7 +8,6 @@ protected:
 
     /*Tile* tileActual;
     Tile* tileSiguiente;*/
-    GameObjectType returType() { return FANTASMA; }
 
 public:
 
@@ -19,7 +18,8 @@ public:
     //void setTileSiguiente(Tile* _tileNuevoSiguiente) { tileSiguiente = _tileNuevoSiguiente; }
     void update() { Fantasma::update(); }
 
-    GameObjectType returnType() override { return FANTASMA; }
+    
+    GameObject* clone();
 
 };
 

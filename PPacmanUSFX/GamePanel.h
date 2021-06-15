@@ -12,6 +12,5 @@ private:
 public:
     GamePanel(Texture* _texturaGamePanel, int _posicionX, int _posicionY);
     void render() override;
-    GameObjectType returnType() override { return PANEL; }
 };
 

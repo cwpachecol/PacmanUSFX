@@ -45,7 +45,6 @@ public:
 
 	// Metodos varios
 	bool tratarDeMover(MoveDirection _direccionNueva);
-	GameObjectType returnType() override { return PACMAN; }
 };
 
 

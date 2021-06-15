@@ -110,6 +110,7 @@ int main()
 {
 	ObjectFactory::initialize();
 	Prototype* object;
+	Prototype* object2;
 
 	/* All the object were created by cloning the prototypes. */
 	object = ObjectFactory::getType1Value1();
@@ -123,6 +124,9 @@ int main()
 
 	object = ObjectFactory::getType2Value2();
 	std::cout << object->getType() << ": " << object->getValue() << std::endl;
+
+	object2 = ObjectFactory::getType1Value1();
+	std::cout << object2->getType() << ": " << object2->getValue() << std::endl;
 
 
 	return 0;

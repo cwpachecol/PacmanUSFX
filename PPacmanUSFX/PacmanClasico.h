@@ -49,6 +49,5 @@ public:
 	//void render() {};
 	////void update();
 	//void deleteGameObject() {};
-	GameObjectType returnType() override { return PACMAN; }
 
 };

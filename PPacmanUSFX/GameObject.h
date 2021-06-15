@@ -19,8 +19,8 @@ protected:
 
 	// Si el objeto es visible
 	bool eliminar;
-	virtual GameObjectType returnType() = 0;
-
+	GameObjectType tipoObjeto;
+	
 //Propiedades para representacion grafica
 protected:
 	// Textura para representacion grafica del objeto
@@ -44,7 +44,6 @@ protected:
 
 public:
 	static TileGraph* tileGraph;
-
 
 public:
 	//Constructores y destructores

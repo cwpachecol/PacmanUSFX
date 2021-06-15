@@ -114,7 +114,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="ParedClasicoAdapter.cpp">
+    <ClCompile Include="FantasmasFactory.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -230,7 +230,7 @@
     <ClInclude Include="GameObjectType.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ParedClasicoAdapter.h">
+    <ClInclude Include="FantasmasFactory.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

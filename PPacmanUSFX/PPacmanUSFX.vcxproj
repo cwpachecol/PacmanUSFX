@@ -26,6 +26,7 @@
     <ClCompile Include="FantasmaAsesino.cpp" />
     <ClCompile Include="FantasmaClasico.cpp" />
     <ClCompile Include="FantasmaGalactico.cpp" />
+    <ClCompile Include="FantasmasFactory.cpp" />
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="FrutaAsesino.cpp" />
     <ClCompile Include="FrutaClasico.cpp" />
@@ -45,7 +46,6 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="ParedAsesino.cpp" />
     <ClCompile Include="ParedClasico.cpp" />
-    <ClCompile Include="ParedClasicoAdapter.cpp" />
     <ClCompile Include="ParedGalactico.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -62,6 +62,7 @@
     <ClInclude Include="FantasmaAsesino.h" />
     <ClInclude Include="FantasmaClasico.h" />
     <ClInclude Include="FantasmaGalactico.h" />
+    <ClInclude Include="FantasmasFactory.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="FrutaAsesino.h" />
     <ClInclude Include="FrutaClasico.h" />
@@ -83,7 +84,6 @@
     <ClInclude Include="Pared.h" />
     <ClInclude Include="ParedAsesino.h" />
     <ClInclude Include="ParedClasico.h" />
-    <ClInclude Include="ParedClasicoAdapter.h" />
     <ClInclude Include="ParedGalactico.h" />
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="PriorityQueue.h" />

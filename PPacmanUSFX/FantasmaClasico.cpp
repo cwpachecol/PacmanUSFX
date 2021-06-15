@@ -1,10 +1,7 @@
 #include "FantasmaClasico.h"
 
 FantasmaClasico::FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura, int _posicionX, int _posicionY, int _velocidadPatron) :
-
 	Fantasma(_tile, _fantasmaClasicoTextura, _posicionX, _posicionY, _velocidadPatron)
-
-	
 {
 
 	tileActual = _tile;
@@ -21,7 +18,14 @@ FantasmaClasico::FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura, 
 		posicionX = 0;
 		posicionY = 0;
 	}
-};
+
+	tipoFantasma = FANTASMA_CLASICO;
+}
+
+GameObject* FantasmaClasico::clone()
+{
+	return new FantasmaClasico(*this);
+}
 
 //void FantasmaClasico::setTile(Tile* _tileNuevo) {
 //	if (tileActual != nullptr)

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _velocidadPatron) :
+Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _velocidad) :
 	GameObject(_fantasmaTexture, _posicionX, _posicionY)
 {
 	texturaAnimacion = new TextureAnimation();
@@ -41,10 +41,8 @@ Fantasma::Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _
 	direccionSiguiente = MOVE_RIGHT;
 
 	// Inicializa propiedade de de pacman
-	posicionXDestino = getPosicionX();
-	posicionYDestino = getPosicionY();
 
-	velocidadPatron = _velocidadPatron;
+	velocidad = _velocidad;
 }
 
 void Fantasma::setTile(Tile* _tileNuevo) {
@@ -141,16 +139,16 @@ void Fantasma::update()
 		switch (direccionActual)
 		{
 		case MOVE_UP:
-			posicionY = std::max(posicionY - velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+			posicionY = std::max(posicionY - velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
 		case MOVE_DOWN:
-			posicionY = std::min(posicionY + velocidadPatron, tileSiguiente->getPosicionY() * Tile::altoTile);
+			posicionY = std::min(posicionY + velocidad, tileSiguiente->getPosicionY() * Tile::altoTile);
 			break;
 		case MOVE_LEFT:
-			posicionX = std::max(posicionX - velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+			posicionX = std::max(posicionX - velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		case MOVE_RIGHT:
-			posicionX = std::min(posicionX + velocidadPatron, tileSiguiente->getPosicionX() * Tile::anchoTile);
+			posicionX = std::min(posicionX + velocidad, tileSiguiente->getPosicionX() * Tile::anchoTile);
 			break;
 		}
 

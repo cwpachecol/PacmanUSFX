@@ -19,5 +19,5 @@ public:
     void setTileSiguiente(Tile* _tileNuevoSiguiente) { tileSiguiente = _tileNuevoSiguiente; }
 
     void update() override;
-    GameObjectType returnType() override { return FANTASMA; }
+    GameObject* clone();
 };
