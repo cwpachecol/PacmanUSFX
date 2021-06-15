@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Texture.h"
+#include "GameObjectType.h"
 
 using namespace std;
 
@@ -18,7 +19,8 @@ protected:
 
 	// Si el objeto es visible
 	bool eliminar;
-	
+	virtual GameObjectType returnType() = 0;
+
 //Propiedades para representacion grafica
 protected:
 	// Textura para representacion grafica del objeto

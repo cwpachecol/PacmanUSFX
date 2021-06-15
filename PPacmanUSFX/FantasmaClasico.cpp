@@ -23,17 +23,17 @@ FantasmaClasico::FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura, 
 	}
 };
 
-void FantasmaClasico::setTile(Tile* _tileNuevo) {
-	if (tileActual != nullptr)
-		tileActual->setFantasma(nullptr);
-
-	tileActual = _tileNuevo;
-
-	if (tileActual != nullptr) {
-		tileActual->setFantasma(this);
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-	}
-};
-
+//void FantasmaClasico::setTile(Tile* _tileNuevo) {
+//	if (tileActual != nullptr)
+//		tileActual->setFantasma(nullptr);
+//
+//	tileActual = _tileNuevo;
+//
+//	if (tileActual != nullptr) {
+//		tileActual->setFantasma(this);
+//
+//		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
+//		posicionY = tileActual->getPosicionY() * Tile::altoTile;
+//	}
+//};
+//

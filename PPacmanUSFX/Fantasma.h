@@ -13,7 +13,7 @@
 #include "TextureAnimation.h"
 #include "PathFinder.h"
 #include "Pacman.h"
-
+#include "GameObjectType.h"
 
 using namespace std;
 
@@ -42,6 +42,8 @@ protected:
 	TextureAnimation* texturaAnimacion;
 
 	bool tratarDeMover(MoveDirection _direccionNueva);
+
+	//GameObjectType returnType() override { return FANTASMA; }
 public:
 	//Constructores y destructores
 	Fantasma(Tile* _tile, Texture* _fantasmaTexture, int _posicionX, int _posicionY, int _velocidadPatron);

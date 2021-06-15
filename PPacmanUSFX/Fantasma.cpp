@@ -95,6 +95,7 @@ bool Fantasma::tratarDeMover(MoveDirection _direccionNueva) {
 
 	return true;
 }
+
 void Fantasma::update()
 {
 	Pacman* pacman = tileGraph->getPacman();

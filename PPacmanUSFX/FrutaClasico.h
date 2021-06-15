@@ -17,6 +17,6 @@ public:
 
 	//Manejador de Eventos
 	void update() override;
-
+	GameObjectType returnType() override { return FRUTA; }
 };
  

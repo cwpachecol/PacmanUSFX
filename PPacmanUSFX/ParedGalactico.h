@@ -18,5 +18,6 @@ private:
 public:
      ParedGalactico(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY, bool _isElectrica);
      void update();
+     GameObjectType returnType() override { return PARED; }
 };
 

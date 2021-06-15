@@ -45,6 +45,7 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="ParedAsesino.cpp" />
     <ClCompile Include="ParedClasico.cpp" />
+    <ClCompile Include="ParedClasicoAdapter.cpp" />
     <ClCompile Include="ParedGalactico.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -67,6 +68,7 @@
     <ClInclude Include="FrutaGalactico.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObjectType.h" />
     <ClInclude Include="GamePanel.h" />
     <ClInclude Include="Laberinto.h" />
     <ClInclude Include="MapGenerator.h" />
@@ -81,6 +83,7 @@
     <ClInclude Include="Pared.h" />
     <ClInclude Include="ParedAsesino.h" />
     <ClInclude Include="ParedClasico.h" />
+    <ClInclude Include="ParedClasicoAdapter.h" />
     <ClInclude Include="ParedGalactico.h" />
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="PriorityQueue.h" />

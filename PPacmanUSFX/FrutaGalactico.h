@@ -17,5 +17,6 @@ public:
     void setCongelaMovimiento(int _congelaMovimiento) { congelaMovimiento = _congelaMovimiento; }
 
     void update() override;
+    GameObjectType returnType() override { return FRUTA; }
 };
 
