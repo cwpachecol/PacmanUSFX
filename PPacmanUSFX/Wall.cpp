@@ -4,7 +4,7 @@ SDL_Rect Wall::textureClips[16];
 
 //Wall::Wall()
 //{
-//	currTile = NULL;
+//	currTile = nullptr;
 //
 //	position.x = 0;
 //	position.y = 0;
@@ -45,7 +45,7 @@ Wall::Wall(Tile* tile, Texture* texture)
 
 	wallTexture = texture;
 
-	if (currTile != NULL) {
+	if (currTile != nullptr) {
 		currTile->SetWall(this);
 
 		position.x = currTile->GetPosition().x * Width;
@@ -75,12 +75,12 @@ Wall::~Wall()
 
 void Wall::SetTile(Tile* newTile)
 {
-	if (currTile != NULL)
-		currTile->SetWall(NULL);
+	if (currTile != nullptr)
+		currTile->SetWall(nullptr);
 
 	currTile = newTile;
 
-	if (currTile != NULL) {
+	if (currTile != nullptr) {
 		currTile->SetWall(this);
 
 		position.x = currTile->GetPosition().x * Width;
@@ -109,7 +109,7 @@ void Wall::Delete()
 	// Calling base function
 	GameObject::Delete();
 
-	currTile->SetWall(NULL);
+	currTile->SetWall(nullptr);
 }
 
 void Wall::Render()
@@ -134,7 +134,7 @@ Tile* Wall::GetTile()
 
 bool Wall::CheckForWall(Tile* tile)
 {
-	if (tile != NULL && tile->GetWall() != NULL)
+	if (tile != nullptr && tile->GetWall() != nullptr)
 		return true;
 
 	return false;

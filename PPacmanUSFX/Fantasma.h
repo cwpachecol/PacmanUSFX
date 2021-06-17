@@ -59,6 +59,7 @@ public:
 	//~Fantasma();
 
 	//Metodos accesores
+	void reconfigurar(Tile* _tile, int _posicionX, int _posicionY, int _velocidad);
 	
 	int getVelocidadPatron() { return velocidad; }
 	Tile* getTile() { return tileActual; }

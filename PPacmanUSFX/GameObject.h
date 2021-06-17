@@ -47,6 +47,7 @@ public:
 
 public:
 	//Constructores y destructores
+	GameObject();
 	GameObject(Texture* _textura, int _posicionX, int _posicionY);
 	~GameObject() {};
 
@@ -81,5 +82,7 @@ public:
 	virtual void handleEvent(SDL_Event* event) {};
 	virtual void deleteGameObject() { eliminar = true; }
 	virtual void free(){};
+	void Delete() { deleteGameObject(); }
+	void Free() { free(); }
 };
 

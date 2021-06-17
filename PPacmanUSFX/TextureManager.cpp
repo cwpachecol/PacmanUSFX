@@ -35,6 +35,10 @@ TextureManager::TextureManager()
 	paredClasicoTexture->loadFromImage(pathParedClasico);
 	addTexture("pared_clasico", paredClasicoTexture);
 
+	paredClasicoAdapterTexture = new Texture();
+	paredClasicoAdapterTexture->loadFromImage(pathParedClasicoAdapter);
+	addTexture("pared_clasico_adapter", paredClasicoAdapterTexture);
+
 	pacmanGalacticoTexture = new Texture();
 	pacmanGalacticoTexture->loadFromImage(pathPacmanGalactico);
 	addTexture("pacman_galactico", pacmanGalacticoTexture);

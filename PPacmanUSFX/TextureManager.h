@@ -17,6 +17,7 @@ private:
 	const string pathMonedaClasico = "Resources/Monedas02.jpg";
 	const string pathSuperMonedaClasico = "Resources/Monedas03.jpg";
 	const string pathParedClasico = "Resources/WallTextures.png";
+	const string pathParedClasicoAdapter = "Resources/wall_sprite.bmp";
 
 	const string pathPacmanGalactico = "Resources/PacMan.bmp";
 	const string pathFantasmaGalactico1 = "Resources/fantasmaamarillo.bmp ";
@@ -39,6 +40,7 @@ private:
 	Texture* monedaClasicoTexture;
 	Texture* superMonedaClasicoTexture;
 	Texture* paredClasicoTexture;
+	Texture* paredClasicoAdapterTexture;
 
 	Texture* pacmanGalacticoTexture;
 	Texture* fantasmaGalactico1Texture;

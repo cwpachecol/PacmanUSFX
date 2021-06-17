@@ -46,6 +46,7 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="ParedAsesino.cpp" />
     <ClCompile Include="ParedClasico.cpp" />
+    <ClCompile Include="ParedClasicoAdapter.cpp" />
     <ClCompile Include="ParedGalactico.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -53,6 +54,7 @@
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileGraph.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Factory.h" />
@@ -84,6 +86,7 @@
     <ClInclude Include="Pared.h" />
     <ClInclude Include="ParedAsesino.h" />
     <ClInclude Include="ParedClasico.h" />
+    <ClInclude Include="ParedClasicoAdapter.h" />
     <ClInclude Include="ParedGalactico.h" />
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="PriorityQueue.h" />
@@ -93,6 +96,7 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />
     <ClInclude Include="TipoTexturaPared.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Clyde.bmp" />
