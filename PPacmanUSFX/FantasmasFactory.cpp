@@ -1,6 +1,6 @@
 #include "FantasmasFactory.h"
 
-GameObject* FantasmasFactory::tipoClasicoBlinky = nullptr;
+Fantasma* FantasmasFactory::tipoClasicoBlinky = nullptr;
 Fantasma* FantasmasFactory::tipoClasicoClyde = nullptr;
 Fantasma* FantasmasFactory::tipoClasicoInkey = nullptr;
 Fantasma* FantasmasFactory::tipoClasicoPinky = nullptr;

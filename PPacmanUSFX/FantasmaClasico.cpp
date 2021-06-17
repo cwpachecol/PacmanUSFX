@@ -22,7 +22,7 @@ FantasmaClasico::FantasmaClasico(Tile* _tile, Texture* _fantasmaClasicoTextura, 
 	tipoFantasma = FANTASMA_CLASICO;
 }
 
-GameObject* FantasmaClasico::clone()
+Fantasma* FantasmaClasico::clone()
 {
 	return new FantasmaClasico(*this);
 }

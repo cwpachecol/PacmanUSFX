@@ -50,7 +50,7 @@ protected:
 	bool tratarDeMover(MoveDirection _direccionNueva);
 	
 public:
-	virtual GameObject* clone() = 0;
+	virtual Fantasma* clone() = 0;
 
 	GameFantasmaType returnGameFantasmaType() { return tipoFantasma; }
 public:

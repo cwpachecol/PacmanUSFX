@@ -19,7 +19,7 @@ public:
     void update() { Fantasma::update(); }
 
     
-    GameObject* clone();
+    Fantasma* clone();
 
 };
 

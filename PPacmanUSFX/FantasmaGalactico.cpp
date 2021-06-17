@@ -113,7 +113,7 @@ void FantasmaGalactico::update()
 	}
 }
 
-GameObject* FantasmaGalactico::clone()
+Fantasma* FantasmaGalactico::clone()
 {
 	return new FantasmaGalactico(*this);
 }
