@@ -19,23 +19,21 @@ protected:
     int valor;
     PODER_MONEDA tipoPoderMoneda;
     int tiempoPoderMoneda;
-    Tile* tileActual;
     GameObjectType returType() { return MONEDA; }
 public:
-    Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY);
+    Moneda(Tile* _tile, Texture* _textura);
 
     int getValor() { return valor; }
     PODER_MONEDA getTipoPoderMoneda() { return tipoPoderMoneda; }
     int getTiempoPoderMoneda() { return tiempoPoderMoneda; }
-    Tile* getTile() { return tileActual; }
    
     void setValor(int _valor) { valor = _valor; }
     void setTipoPoderMoneda(PODER_MONEDA _poderMoneda) { tipoPoderMoneda = _poderMoneda; }
     void setTiempoPoderMoneda(int _tiempoPoderMoneda) { tiempoPoderMoneda = _tiempoPoderMoneda; }
-    void setTile(Tile* _tileNuevo);
+    void setTileActual(Tile* _tileNuevo);
 
     void deleteGameObject() override;
-    //void render();
+    void handleEvent(SDL_Event* event){};
 
 };
 

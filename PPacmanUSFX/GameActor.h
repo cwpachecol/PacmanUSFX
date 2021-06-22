@@ -86,7 +86,7 @@ public:
 	void setEnergia(int _energia) { energia = _energia; }
 	void setVidas(int _vidas) { vidas = _vidas; }
 	void setTextura(Texture* _textura) { textura = _textura; }
-	virtual void setTileActual() = 0;
+	virtual void setTileActual(Tile* _tileNuevo) = 0;
 	void setTileSiguiente(Tile* _tileSiguiente) { tileSiguiente = _tileSiguiente; }
 	void setDireccionActual(MoveDirection _direccionActual) { direccionActual = _direccionActual; }
 	void setDireccionSiguiente(MoveDirection _direccionSiguiente) { direccionSiguiente = _direccionSiguiente; }

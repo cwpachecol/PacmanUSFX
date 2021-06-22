@@ -7,7 +7,6 @@ class Pared :
     public GameActor
 {
 protected:
-    Tile* tileActual;
     int frameX;
     int frameY;
     int altoClip;
@@ -15,10 +14,16 @@ protected:
     int tipoTexturaPared;
     GameObjectType returType() { return PARED; }
 public:
+    Pared(Tile* _tile, Texture* _paredTextura);
     Pared(Tile* _tile, Texture* _paredTextura, int _posicionX, int _posicionY);
-    Tile* getTile() { return tileActual; }
-    void setTile(Tile* _tileNuevo);
+    void setTileActual(Tile* _tileNuevo);
+
     void render() override;
-    void setTexture(int tipoTextura);
+    void update() {};
+    void handleEvent(SDL_Event* event) {};
+    void deleteGameObject() {};
+    void free() {};
+
+
 };
 

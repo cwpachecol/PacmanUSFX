@@ -35,7 +35,7 @@ public:
 	//Metodos accesores
 	int getEstado() { return estado; }
 	void setEstado(int _estado) { estado = _estado; }
-	void setTile(Tile* _tileNuevo);
+	void setTileActual(Tile* _tileNuevo) override;
 
 	// Metodos varios
 

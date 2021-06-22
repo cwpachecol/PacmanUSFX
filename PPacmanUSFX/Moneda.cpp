@@ -1,7 +1,7 @@
 #include "Moneda.h"
 
-Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY) :
-	GameActor(_monedaTextura, _posicionX, _posicionY)
+Moneda::Moneda(Tile* _tile, Texture* _textura) :
+	GameActor(_textura)
 {
 	tileActual = _tile;
 
@@ -25,7 +25,7 @@ Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posici
 	tiempoPoderMoneda = 0;
 }
 
-void Moneda::setTile(Tile* _tileNuevo) {
+void Moneda::setTileActual(Tile* _tileNuevo) {
 	if (tileActual != nullptr) {
 		tileActual->setMoneda(nullptr);
 	}
@@ -42,6 +42,6 @@ void Moneda::setTile(Tile* _tileNuevo) {
 
 void Moneda::deleteGameObject()
 {
-	GameObject::deleteGameObject();
+	GameActor::deleteGameObject();
 	tileActual->setMoneda(nullptr);
 }

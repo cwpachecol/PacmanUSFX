@@ -82,7 +82,7 @@ Pacman::Pacman(Tile* _tile, Texture* _textura, int _posicionX, int _posicionY) :
 	direccionSiguiente = MOVE_RIGHT;
 }
 
-void Pacman::setTile(Tile* _tileNuevo) {
+void Pacman::setTileActual(Tile* _tileNuevo) {
 
 	if (tileActual != nullptr) {
 		tileActual->setPacman(nullptr);
@@ -161,10 +161,10 @@ void Pacman::update()
 		colisionador->y = posicionY;
 
 		if ((direccionActual == MOVE_DOWN || direccionActual == MOVE_UP) && posicionY == tileSiguiente->getPosicionY() * Tile::altoTile)
-			setTile(tileSiguiente);
+			setTileActual(tileSiguiente);
 
 		if ((direccionActual == MOVE_LEFT || direccionActual == MOVE_RIGHT) && posicionX == tileSiguiente->getPosicionX() * Tile::anchoTile)
-			setTile(tileSiguiente);
+			setTileActual(tileSiguiente);
 	}
 }
 
