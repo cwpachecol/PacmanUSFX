@@ -54,12 +54,13 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setParametrosAnimacion(2);
 				break;
 			case 'a':
-				
+				/*
 				objetoNuevo = FantasmasFactory::getTipoClasicoBlinky();
 				((Fantasma*)objetoNuevo)->reconfigurar(tileNuevo, x * 25, y * 25, 5);
 				objetoNuevo->setParametrosAnimacion(4);
+				*/
 
-				/*objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 1);
+				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 1);
 				objetoNuevo->setParametrosAnimacion(4);
 				objetoFantasmaClonado = ((Fantasma*)objetoNuevo)->clone();
 				if (objetoFantasmaClonado != nullptr) {
@@ -72,13 +73,7 @@ bool MapGenerator::load(string path)
 					objetoFantasmaClonado->setVelocidadPatron(5);
 					cout << "Se ha clonado satisfactoriamente el fantasma 1" << endl;
 					vectorObjetosJuego.push_back(objetoFantasmaClonado);
-				}*/
-
-				
-
-
-
-
+				}
 				break;
 			case 'b':
 				objetoNuevo = factory->createFantasmaInstance(tileNuevo, textureManager, x * 25, y * 25, 2);

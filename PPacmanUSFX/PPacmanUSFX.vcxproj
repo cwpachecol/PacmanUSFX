@@ -31,6 +31,7 @@
     <ClCompile Include="FrutaAsesino.cpp" />
     <ClCompile Include="FrutaClasico.cpp" />
     <ClCompile Include="FrutaGalactico.cpp" />
+    <ClCompile Include="GameActor.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePanel.cpp" />
@@ -69,6 +70,7 @@
     <ClInclude Include="FrutaAsesino.h" />
     <ClInclude Include="FrutaClasico.h" />
     <ClInclude Include="FrutaGalactico.h" />
+    <ClInclude Include="GameActor.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectType.h" />

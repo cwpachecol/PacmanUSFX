@@ -18,11 +18,7 @@ using namespace std;
 class Pacman : public GameObject
 {
 protected:
-	Tile* tileActual;
-	Tile* tileSiguiente;
-
-	MoveDirection direccionActual;
-	MoveDirection direccionSiguiente;
+	
 
 
 	// Velocidad a la que mueve el fantasma en cualquier eje
