@@ -1,10 +1,10 @@
 #pragma once
-#include "GameObject.h"
+#include "GameActor.h"
 #include "TipoTexturaPared.h"
 #include "TileGraph.h"
 
 class Pared :
-    public GameObject
+    public GameActor
 {
 protected:
     Tile* tileActual;

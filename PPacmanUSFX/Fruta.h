@@ -3,7 +3,7 @@
 #include <vector>
 #include <SDL.h>
 
-#include "GameObject.h"
+#include "GameActor.h"
 #include "Texture.h"
 #include "TileGraph.h"
 #include "Tile.h"
@@ -18,7 +18,7 @@ enum TIPO_FRUTA {
 	TIPO_FRUTA_MAXIMO
 };
 
-class Fruta : public GameObject {
+class Fruta : public GameActor {
 protected:
 
 	TIPO_FRUTA tipoFruta;

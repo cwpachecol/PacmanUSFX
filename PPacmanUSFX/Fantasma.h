@@ -4,7 +4,7 @@
 #include <SDL.h>
 #include <algorithm>
 
-#include "GameObject.h"
+#include "GameActor.h"
 #include "Texture.h"
 #include "Tile.h"
 #include "TileGraph.h"
@@ -23,7 +23,7 @@ enum GameFantasmaType {
 };
 
 
-class Fantasma : public GameObject {
+class Fantasma : public GameActor {
 protected:
 	//Velocidad en eje X y Y
 	

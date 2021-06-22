@@ -4,7 +4,7 @@
 using namespace std;
 
 Fruta::Fruta(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY) :
-	GameObject( _frutaTexture, _posicionX, _posicionY)
+	GameActor( _frutaTexture, _posicionX, _posicionY)
 {
 	tileActual = _tile;
 

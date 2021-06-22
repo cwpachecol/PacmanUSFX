@@ -1,7 +1,7 @@
 #include "Moneda.h"
 
 Moneda::Moneda(Tile* _tile, Texture* _monedaTextura, int _posicionX, int _posicionY) :
-	GameObject(_monedaTextura, _posicionX, _posicionY)
+	GameActor(_monedaTextura, _posicionX, _posicionY)
 {
 	tileActual = _tile;
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL.h>
-#include "GameObject.h"
+#include "GameActor.h"
 #include "Texture.h"
 #include "TileGraph.h"
 
@@ -14,8 +14,7 @@ enum PODER_MONEDA {
 
 
 class Moneda :
-    public GameObject
-{
+    public GameActor{
 protected:
     int valor;
     PODER_MONEDA tipoPoderMoneda;

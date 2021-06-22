@@ -5,7 +5,7 @@
 
 #include <SDL.h>
 
-#include "GameObject.h"
+#include "GamePawn.h"
 #include "Texture.h"
 #include "Tile.h"
 #include "TileGraph.h"
@@ -15,58 +15,32 @@
 
 using namespace std;
 
-class Pacman : public GameObject
+class Pacman : public GamePawn
 {
 protected:
-	
-
-
-	// Velocidad a la que mueve el fantasma en cualquier eje
-	int velocidad;
-
-	int posicionXEnTextura;
-	int posicionYEnTextura;
-
 	TextureAnimation* texturaAnimacion;
 	//static Pacman* instancia;
 
-	int energia;
-	int state;
+	int estado;
 
 	GameObjectType returType() { return PACMAN; }
 public:
-	Pacman(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _velocidad);
+	//Constructores y destructores
+	Pacman(Tile* _tile, Texture* _textura);
+	Pacman(Tile* _tile, Texture* _textura, int _posicionX, int _posicionY);
+	~Pacman() {};
 
 	//	static Pacman* crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron);
 
-		//Constructores y destructores
-
-		//~Pacman();
-
-		//Metodos accesores
-	
-	int getState() { return state; }
-	void setState(int _state) { state = _state; }
-
-
-
-	int getVelocidad() { return velocidad; }
-	Tile* getTile() { return tileActual; }
-	Tile* getTileSiguiente() { return tileSiguiente; }
-	int getEnergia() { return energia; }
-
-
-	void setVelocidad(int _velocidad) { velocidad = _velocidad; }
+	//Metodos accesores
+	int getEstado() { return estado; }
+	void setEstado(int _estado) { estado = _estado; }
 	void setTile(Tile* _tileNuevo);
-	void setTileSiguiente(Tile* _tileSiguienteNuevo) { tileSiguiente = _tileSiguienteNuevo; }
-	void setEnergia(int _energia) { energia = _energia; }
 
 	// Metodos varios
-	bool tratarDeMover(MoveDirection _direccionNueva);
-	void restarEnergia();
 
-	// Manejador de eventos de pacman
-	void handleEvent(SDL_Event* event) override;
+	//Metodos virtuales, redefinidos o sobrecargados
+	void handleEvent(SDL_Event* event);
 	// Mover pacman
 	void update() override;
 	// Renderizar imagen pacman
