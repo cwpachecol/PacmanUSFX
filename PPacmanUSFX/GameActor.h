@@ -3,6 +3,7 @@
 #include "Tile.h"
 #include "MoveDirection.h"
 #include "TileGraph.h"
+#include "AnimationFrames.h"
 
 class GameActor :
     public GameObject
@@ -29,6 +30,7 @@ protected:
 
 	// Representacion grafica del objeto
 	Texture* textura;
+	AnimationFrames* framesAnimacion;
 
 	Tile* tileActual;
 	Tile* tileSiguiente;
@@ -38,7 +40,7 @@ protected:
 
 	int numeroFrame;
 	int contadorFrames;
-	int framesMovimiento;
+	int framesDireccion;
 
 	SDL_Rect* colisionador;
 
@@ -49,8 +51,7 @@ public:
 	//Constructores & destructores
 	GameActor();
 	GameActor(Texture* _textura);
-	GameActor(Texture* _textura, int _posicionX, int _posicionY);
-	~GameActor() {};
+	~GameActor();
 
 	// Metodos accesores
 	int getPosicionX() { return posicionX; }
@@ -66,11 +67,12 @@ public:
 	int getEnergia() { return energia; }
 	int getVidas() { return vidas; }
 	Texture* getTextura() { return textura; }
+	AnimationFrames* getFramesAnimacion() { return framesAnimacion; }
 	Tile* getTileActual() { return tileActual; }
 	Tile* getTileSiguiente() { return tileSiguiente; }
 	MoveDirection getDireccionActual() { return direccionActual; }
 	MoveDirection getDireccionSiguiente() { return direccionSiguiente; }
-	int getFramesMovimiento() { return framesMovimiento; }
+	int getframesDireccion() { return framesDireccion; }
 	SDL_Rect* getColisionador() { return colisionador; }
 
 	void setPosicionX(int _posicionX) { posicionX = _posicionX; }
@@ -86,15 +88,15 @@ public:
 	void setEnergia(int _energia) { energia = _energia; }
 	void setVidas(int _vidas) { vidas = _vidas; }
 	void setTextura(Texture* _textura) { textura = _textura; }
+	void setFramesAnimacion(AnimationFrames* _framesAnimacion) { framesAnimacion = _framesAnimacion; }
 	virtual void setTileActual(Tile* _tileNuevo) = 0;
 	void setTileSiguiente(Tile* _tileSiguiente) { tileSiguiente = _tileSiguiente; }
 	void setDireccionActual(MoveDirection _direccionActual) { direccionActual = _direccionActual; }
 	void setDireccionSiguiente(MoveDirection _direccionSiguiente) { direccionSiguiente = _direccionSiguiente; }
-	void setFramesMovimiento(int _framesMoviento) { framesMovimiento = _framesMoviento; }
+	void setFramesDireccion(int _framesDireccion) { framesDireccion = _framesDireccion; }
 	void setColisionador(SDL_Rect* _colisionador) { colisionador = _colisionador; }
 	
 	// Metodos varios
-	void setParametrosAnimacion(int _framesMovimiento) { framesMovimiento = _framesMovimiento; }
 	bool revisarColision(const SDL_Rect* _otroColisionador);
 	bool revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* _colisionador2);
 	bool tratarDeMover(MoveDirection _direccionNueva);
@@ -106,6 +108,5 @@ public:
 	virtual void update();
 	virtual void handleEvent(SDL_Event* event) = 0;
 	virtual void deleteGameObject();
-	virtual void free();
 };
 

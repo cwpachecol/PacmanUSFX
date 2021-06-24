@@ -1,30 +1,17 @@
 #include <stdio.h>
 #include "Pacman.h"
 
-//Pacman* Pacman::instancia = nullptr;
-//
-//Pacman* Pacman::crearInstancia(Tile* _tile, Texture* _texturaPacman, int _posicionX, int _posicionY, int _ancho, int _alto, int _anchoPantalla, int _altoPantalla, int _velocidadPatron) {
-//	if (instancia == nullptr) {
-//		instancia = new Pacman(_tile, _texturaPacman, _posicionX, _posicionY, _ancho, _alto, _anchoPantalla, _altoPantalla, _velocidadPatron);
-//	}
-//	
-//	return instancia;
-//
-//}
-
-
 Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 {
-	texturaAnimacion = new TextureAnimation();
-	texturaAnimacion->setTexture(_textura);
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
+	/*framesAnimacion = new AnimationFrames();
+	framesAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
+	framesAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
+	framesAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
+	framesAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
+	framesAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
+	framesAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
+	framesAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
+	framesAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));*/
 
 	tileActual = _tile;
 	tileSiguiente = nullptr;
@@ -42,47 +29,18 @@ Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 		posicionY = 0;
 	}
 
+	colisionador->w = ancho;
+	colisionador->h = alto;
 
-	direccionActual = MOVE_RIGHT;
-	direccionSiguiente = MOVE_RIGHT;
-}
-
-Pacman::Pacman(Tile* _tile, Texture* _textura, int _posicionX, int _posicionY) :
-	GamePawn(_textura, _posicionX, _posicionY)
-{
-	texturaAnimacion = new TextureAnimation();
-	texturaAnimacion->setTexture(_textura);
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	texturaAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));
-
-	tileActual = _tile;
-	tileSiguiente = nullptr;
-
-	if (tileActual != nullptr) {
-		tileActual->setPacman(this);
-
-		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
-		posicionY = tileActual->getPosicionY() * Tile::altoTile;
-		ancho = Tile::anchoTile;
-		alto = Tile::altoTile;
-	}
-	else {
-		posicionX = 0;
-		posicionY = 0;
-	}
-
-
-	direccionActual = MOVE_RIGHT;
-	direccionSiguiente = MOVE_RIGHT;
+	velocidad = 5;
+	movil = true;
+	enMovimiento = false;
+	direccionActual = MOVE_STILL;
+	direccionSiguiente = MOVE_STILL;
 }
 
 void Pacman::setTileActual(Tile* _tileNuevo) {
+
 
 	if (tileActual != nullptr) {
 		tileActual->setPacman(nullptr);
@@ -97,11 +55,6 @@ void Pacman::setTileActual(Tile* _tileNuevo) {
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
 	}
 
-}
-
-void Pacman::handleEvent(SDL_Event* event)
-{
-	GamePawn::handleEvent(event);
 }
 
 void Pacman::update()
@@ -174,20 +127,20 @@ void Pacman::render()
 
 	switch (direccionActual) {
 	case MOVE_UP:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("arriba")[numeroFrame];
+		cuadroAnimacion = framesAnimacion->getCuadrosAnimacion("arriba")[numeroFrame];
 		break;
 	case MOVE_DOWN:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("abajo")[numeroFrame];
+		cuadroAnimacion = framesAnimacion->getCuadrosAnimacion("abajo")[numeroFrame];
 		break;
 	case MOVE_LEFT:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("izquierda")[numeroFrame];
+		cuadroAnimacion = framesAnimacion->getCuadrosAnimacion("izquierda")[numeroFrame];
 		break;
 	case MOVE_RIGHT:
-		cuadroAnimacion = texturaAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
+		cuadroAnimacion = framesAnimacion->getCuadrosAnimacion("derecha")[numeroFrame];
 		break;
 	}
 
-	texturaAnimacion->getTexture()->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
 }
 
 void Pacman::deleteGameObject()

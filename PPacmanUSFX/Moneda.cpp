@@ -19,6 +19,13 @@ Moneda::Moneda(Tile* _tile, Texture* _textura) :
 		posicionY = 0;
 	}
 
+	colisionador->w = ancho;
+	colisionador->h = alto;
+
+	colisionador->x = posicionX;
+	colisionador->y = posicionY;
+
+
 	// Inicializa propiedade de de pacman
 	valor = 1;
 	tipoPoderMoneda = PODER_MONEDA_NINGUNO;
@@ -26,6 +33,7 @@ Moneda::Moneda(Tile* _tile, Texture* _textura) :
 }
 
 void Moneda::setTileActual(Tile* _tileNuevo) {
+	
 	if (tileActual != nullptr) {
 		tileActual->setMoneda(nullptr);
 	}
@@ -38,10 +46,14 @@ void Moneda::setTileActual(Tile* _tileNuevo) {
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
  	}
+	else {
+		posicionX = 0;
+		posicionY = 0;
+	}
 }
 
 void Moneda::deleteGameObject()
 {
-	GameActor::deleteGameObject();
+	GameObject::deleteGameObject();
 	tileActual->setMoneda(nullptr);
 }

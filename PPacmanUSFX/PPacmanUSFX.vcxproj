@@ -32,7 +32,7 @@
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="PathFinder.cpp" />
     <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureAnimation.cpp" />
+    <ClCompile Include="AnimationFrames.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileGraph.cpp" />
@@ -53,7 +53,7 @@
     <ClInclude Include="PathFinder.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureAnimation.h" />
+    <ClInclude Include="AnimationFrames.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileGraph.h" />

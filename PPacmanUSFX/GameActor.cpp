@@ -20,6 +20,7 @@ GameActor::GameActor():GameObject()
 	vidas = 3;
 
 	textura = nullptr;
+	framesAnimacion = nullptr;
 	tileActual = nullptr;
 	tileSiguiente = nullptr;
 
@@ -28,7 +29,7 @@ GameActor::GameActor():GameObject()
 
 	numeroFrame = 0;
 	contadorFrames = 0;
-	framesMovimiento = 1;
+	framesDireccion = 1;
 
 	colisionador = new SDL_Rect({ 0, 0, ancho, alto });
 }
@@ -59,43 +60,15 @@ GameActor::GameActor(Texture* _textura):GameObject()
 
 	numeroFrame = 0;
 	contadorFrames = 0;
-	framesMovimiento = 1;
+	framesDireccion = 1;
 
 	colisionador = new SDL_Rect({ posicionX, posicionY, ancho, alto });
 }
 
-GameActor::GameActor(Texture* _textura, int _posicionX, int _posicionY):GameObject()
+GameActor::~GameActor()
 {
-	posicionX = _posicionX;
-	posicionY = _posicionY;
-	ancho = 0;
-	alto = 0;
-
-	solido = true;
-	indestructible = true;
-	visible = true;
-	movil = false;
-	enMovimiento = false;
-
-	velocidad = 10;
-	energia = 10;
-	vidas = 3;
-
-	textura = _textura;
-	tileActual = nullptr;
-	tileSiguiente = nullptr;
-
-	direccionActual = MOVE_STILL;
-	direccionSiguiente = MOVE_STILL;
-
-	numeroFrame = 0;
-	contadorFrames = 0;
-	framesMovimiento = 1;
-
-	colisionador = new SDL_Rect({ posicionX, posicionY, ancho, alto });
-
+	free();
 }
-
 
 bool GameActor::revisarColision(const SDL_Rect* _otroColisionador)
 {
@@ -142,17 +115,26 @@ bool GameActor::revisarColision(const SDL_Rect* _colisionador1, const SDL_Rect* 
 
 void GameActor::render()
 {
-	SDL_Rect* cuadroAnimacion = new SDL_Rect({ 25 * numeroFrame, 0, getAncho(), getAlto() });
 
-	// Renderizar en la pantalla
-	textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	if (visible) {
+		/*SDL_Rect rect = { posicionX, posicionY, ancho, alto };
+		SDL_Rect clip = { 0 + frameX * Tile::anchoTile, 0 + frameY * Tile::altoTile, Tile::anchoTile, Tile::altoTile };
+		textura->render(posicionX, posicionY, &clip, &rect);*/
+
+		SDL_Rect* cuadroAnimacion = new SDL_Rect({ 25 * numeroFrame, 0, getAncho(), getAlto() });
+
+		// Renderizar en la pantalla
+		textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+	}
+
+	
 }
 
 void GameActor::update() {
 	contadorFrames++;
 	numeroFrame = contadorFrames / 8;
 
-	if (numeroFrame > framesMovimiento - 1) {
+	if (numeroFrame > framesDireccion - 1) {
 		numeroFrame = 0;
 		contadorFrames = 0;
 	}
@@ -164,10 +146,6 @@ void GameActor::deleteGameObject()
 	GameObject::deleteGameObject();
 }
 
-void GameActor::free()
-{
-	GameObject::free();
-}
 
 bool GameActor::tratarDeMover(MoveDirection _direccionNueva)
 {

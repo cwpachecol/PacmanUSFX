@@ -8,9 +8,10 @@ GamePawn::GamePawn(Texture* _textura):GameActor(_textura)
 {
 }
 
-GamePawn::GamePawn(Texture* _textura, int _posicionX, int _posicionY):GameActor(_textura, _posicionX, _posicionY)
-{
 
+GamePawn::~GamePawn()
+{
+	free();
 }
 
 void GamePawn::render()
@@ -49,10 +50,5 @@ void GamePawn::handleEvent(SDL_Event* event)
 
 void GamePawn::deleteGameObject()
 {
-	GameActor::deleteGameObject();
-}
-
-void GamePawn::free()
-{
-	GameActor::free();
+	GameObject::deleteGameObject();
 }

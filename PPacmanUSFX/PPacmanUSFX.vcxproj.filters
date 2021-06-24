@@ -51,7 +51,7 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="TextureAnimation.cpp">
+    <ClCompile Include="AnimationFrames.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="PathFinder.cpp">
@@ -107,7 +107,7 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="TextureAnimation.h">
+    <ClInclude Include="AnimationFrames.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PriorityQueue.h">

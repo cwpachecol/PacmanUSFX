@@ -3,13 +3,13 @@
 
 using namespace std;
 
-Fruta::Fruta(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY) :
-	GameActor( _frutaTexture, _posicionX, _posicionY)
+Fruta::Fruta(Tile* _tile, Texture* _texture) :
+	GameActor(_texture)
 {
 	tileActual = _tile;
 
 	if (tileActual != nullptr) {
-		tileActual->setMoneda(nullptr);
+		tileActual->setFruta(nullptr);
 
 		posicionX = tileActual->getPosicionX() * Tile::anchoTile;
 		posicionY = tileActual->getPosicionY() * Tile::altoTile;
@@ -28,6 +28,11 @@ Fruta::Fruta(Tile* _tile, Texture* _frutaTexture, int _posicionX, int _posicionY
 	contadorTiempoVisible = 0;
 	contadorTiempoInvisible = 0;
 	int numeroFrutaVisible = 0;
+}
+
+Fruta::~Fruta()
+{
+	free();
 }
 
 
