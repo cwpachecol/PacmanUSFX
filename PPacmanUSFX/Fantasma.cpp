@@ -89,39 +89,6 @@ void Fantasma::setTileActual(Tile* _tileNuevo) {
 
 }
 
-//bool Fantasma::tratarDeMover(MoveDirection _direccionNueva) {
-//	Tile* tileDestino = nullptr;
-//
-//	switch (_direccionNueva) {
-//	case MOVE_UP:
-//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() - 1);
-//		break;
-//	case MOVE_DOWN:
-//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX(), tileActual->getPosicionY() + 1);
-//		break;
-//	case MOVE_LEFT:
-//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() - 1, tileActual->getPosicionY());
-//		break;
-//	case MOVE_RIGHT:
-//		tileDestino = tileGraph->getTileEn(tileActual->getPosicionX() + 1, tileActual->getPosicionY());
-//		break;
-//	}
-//
-//	if (tileDestino == nullptr) {
-//		setTileSiguiente(nullptr);
-//		return false;
-//	}
-//
-//	if (tileDestino->getPared() != nullptr) {
-//		setTileSiguiente(nullptr);
-//		return false;
-//	}
-//
-//	setTileSiguiente(tileDestino);
-//
-//	return true;
-//}
-
 void Fantasma::update()
 {
 	Pacman* pacman = tileGraph->getPacman();

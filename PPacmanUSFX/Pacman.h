@@ -11,6 +11,7 @@
 #include "TileGraph.h"
 #include "MoveDirection.h"
 #include "Moneda.h"
+#include "GamePawnControllerKey1.h"
 
 using namespace std;
 

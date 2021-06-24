@@ -10,6 +10,7 @@
 #include "Moneda.h"
 #include "Fantasma.h"
 #include "Pacman.h"
+#include "MsPacman.h"
 #include "Fruta.h"
 #include "Pared.h"
 #include "Tile.h"

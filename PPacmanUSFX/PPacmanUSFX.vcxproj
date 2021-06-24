@@ -25,9 +25,13 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePawn.cpp" />
+    <ClCompile Include="GamePawnControllerKey2.cpp" />
+    <ClCompile Include="GamePawnController.cpp" />
+    <ClCompile Include="GamePawnControllerKey1.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
+    <ClCompile Include="MsPacman.cpp" />
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="PathFinder.cpp" />
@@ -45,9 +49,13 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectType.h" />
     <ClInclude Include="GamePawn.h" />
+    <ClInclude Include="GamePawnControllerKey2.h" />
+    <ClInclude Include="GamePawnController.h" />
+    <ClInclude Include="GamePawnControllerKey1.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="MoveDirection.h" />
+    <ClInclude Include="MsPacman.h" />
     <ClInclude Include="Pacman.h" />
     <ClInclude Include="Pared.h" />
     <ClInclude Include="PathFinder.h" />

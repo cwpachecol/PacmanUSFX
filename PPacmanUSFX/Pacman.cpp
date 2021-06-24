@@ -3,16 +3,6 @@
 
 Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 {
-	/*framesAnimacion = new AnimationFrames();
-	framesAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("arriba", new SDL_Rect({ 75, 25, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 50, 0, 25, 25 }));
-	framesAnimacion->addCuadroAnimacion("abajo", new SDL_Rect({ 75, 0, 25, 25 }));*/
-
 	tileActual = _tile;
 	tileSiguiente = nullptr;
 
@@ -37,6 +27,8 @@ Pacman::Pacman(Tile* _tile, Texture* _textura) :GamePawn(_textura)
 	enMovimiento = false;
 	direccionActual = MOVE_STILL;
 	direccionSiguiente = MOVE_STILL;
+
+	gamePawnController = new GamePawnControllerKey1();
 }
 
 void Pacman::setTileActual(Tile* _tileNuevo) {

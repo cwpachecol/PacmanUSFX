@@ -87,8 +87,8 @@ TextureManager::TextureManager()
 	addFramesAnimacion("pacman_clasico", framesAnimacionPacmanClasico);
 
 	framesAnimacionFantasmaClasico = new AnimationFrames();
-	framesAnimacionFantasmaClasico->addCuadroAnimacion("izquierda", new SDL_Rect({ 0, 0, 25, 25 }));
-	framesAnimacionFantasmaClasico->addCuadroAnimacion("izquierda", new SDL_Rect({ 25, 0, 25, 25 }));
+	framesAnimacionFantasmaClasico->addCuadroAnimacion("izquierda", new SDL_Rect({ 50, 25, 25, 25 }));
+	framesAnimacionFantasmaClasico->addCuadroAnimacion("izquierda", new SDL_Rect({ 75, 25, 25, 25 }));
 	framesAnimacionFantasmaClasico->addCuadroAnimacion("derecha", new SDL_Rect({ 0, 25, 25, 25 }));
 	framesAnimacionFantasmaClasico->addCuadroAnimacion("derecha", new SDL_Rect({ 25, 25, 25, 25 }));
 	framesAnimacionFantasmaClasico->addCuadroAnimacion("arriba", new SDL_Rect({ 50, 25, 25, 25 }));
