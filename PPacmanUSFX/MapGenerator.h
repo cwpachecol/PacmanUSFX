@@ -16,6 +16,7 @@
 #include "Tile.h"
 #include "TileGraph.h"
 #include "TextureManager.h"
+#include "GUI/Panel.h"
 //#include "FactoryPacmanClasico.h"
 //#include "FactoryPacmanGalactico.h"
 //#include "Factory.h"
@@ -31,6 +32,7 @@ private:
 	TileGraph* tileGraph;
 	//TextureManager* textureManager;
 	//Factory* factory;
+
 
 	int anchoPantalla;
 	int altoPantalla;

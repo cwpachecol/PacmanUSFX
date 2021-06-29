@@ -1,5 +1,7 @@
 #pragma once
 #include "../GameObject.h"
+#include<iostream>
+using namespace std;
 
 class Panel :
     public GameObject
@@ -13,11 +15,11 @@ protected:
 	SDL_Color* panelColor;
 
 	SDL_Rect* etiqueta;
-	std::string etiquetaTexto;
+	string etiquetaTexto;
 	TTF_Font* etiquetaFuente;
 	int etiquetaTamanoFuente;
 	SDL_Color* etiquetaColor;
-	
+		
 	int color_r;
 	int color_g;
 	int color_b;
@@ -27,7 +29,7 @@ protected:
 	bool clickedOn;
 public:
 	//Constructores y destructores
-	Panel(SDL_Window* _window, SDL_Renderer* _renderer, int _posicionX, int _posicionY, int _ancho, int _alto, std::string _nombre);
+	Panel(SDL_Renderer* _renderer, int _posicionX, int _posicionY, int _ancho, int _alto, std::string _nombre);
 	~Panel() {};
 
 	//Metodos accesores

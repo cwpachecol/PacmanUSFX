@@ -129,6 +129,11 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 
+	GameObject* objetoPanel = new Panel(TextureManager::getInstancia()->getRenderer(), 20, 50, 150, 300, "Panel1");
+	((Panel*)objetoPanel)->setColorPanel(250, 180, 35, 250);
+	vectorObjetosJuego.push_back(objetoPanel);
+
+
 	/*GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);
 	vectorObjetosJuego.push_back(objetoPanel);*/
 

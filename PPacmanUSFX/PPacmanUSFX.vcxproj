@@ -28,8 +28,8 @@
     <ClCompile Include="GamePawnControllerKey2.cpp" />
     <ClCompile Include="GamePawnController.cpp" />
     <ClCompile Include="GamePawnControllerKey1.cpp" />
-    <ClCompile Include="gui\GUI.cpp" />
-    <ClCompile Include="gui\Panel.cpp" />
+    <ClCompile Include="GUI\GUI.cpp" />
+    <ClCompile Include="GUI\Panel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
@@ -54,8 +54,8 @@
     <ClInclude Include="GamePawnControllerKey2.h" />
     <ClInclude Include="GamePawnController.h" />
     <ClInclude Include="GamePawnControllerKey1.h" />
-    <ClInclude Include="gui\GUI.h" />
-    <ClInclude Include="gui\Panel.h" />
+    <ClInclude Include="GUI\GUI.h" />
+    <ClInclude Include="GUI\Panel.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Moneda.h" />
     <ClInclude Include="MoveDirection.h" />

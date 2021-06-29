@@ -1,19 +1,18 @@
 #include "Panel.h"
 
 
-Panel::Panel(SDL_Window* _window, SDL_Renderer* _renderer, int _posicionX, int _posicionY, int _ancho, int _alto, std::string _nombre){
-    window = _window;
+Panel::Panel(SDL_Renderer* _renderer, int _posicionX, int _posicionY, int _ancho, int _alto, string _nombre){
     renderer = _renderer;
     panel = new SDL_Rect({ _posicionX, _posicionY, _ancho, _alto });
 	nombre = _nombre;
 
-    panelColor = new SDL_Color({ 155, 25, 255, 255});
-    etiqueta = new SDL_Rect({ 0, 0, 0,0 });
-    etiquetaTamanoFuente = 20;
+    panelColor = new SDL_Color({ 155, 25, 255});
+    etiqueta = new SDL_Rect({ _posicionX, _posicionY, _ancho, _alto });
+    etiquetaTamanoFuente = 15;
 
     etiquetaTexto = "texto por defecto";
     etiquetaFuente = TTF_OpenFont("Resources/Fuentes/BarlowCondensed-Bold.ttf", etiquetaTamanoFuente);
-    etiquetaColor = new SDL_Color({ 10, 70, 210, 100});
+    etiquetaColor = new SDL_Color({ 10, 70, 210});
 
     clickedOn = false;
 }
@@ -61,13 +60,15 @@ bool Panel::mouseDentroLimites()
 
 void Panel::render()
 {
+    cout << "aqui" << endl;
+    
     SDL_SetRenderDrawColor(renderer, getColorR(), getColorG(), getColorB(), getColorA());
     SDL_Rect* panelRect = getPanelSDLRect();
     SDL_RenderFillRect(renderer, panelRect);
 
-    if (etiquetaTexto.length() > 1) {
+    /*if (etiquetaTexto.length() > 1) {
         renderText(etiquetaFuente, etiquetaTexto, etiquetaColor);
-    }
+    }*/
 
     SDL_RenderPresent(renderer);
 
