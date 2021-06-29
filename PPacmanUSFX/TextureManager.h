@@ -1,4 +1,5 @@
 #pragma once
+#include<iostream>
 #include<map>
 #include "Texture.h"
 #include "AnimationFrames.h"
@@ -6,10 +7,8 @@ using namespace std;
 
 class TextureManager
 {
-private:
-	map<string, Texture*> mapTexturas;
-	map<string, AnimationFrames*> mapFramesAnimaciones;
 
+private:
 	const string pathPacmanClasico = "Resources/PacMan.bmp";
 	const string pathFantasmaClasico1 = "Resources/Blinky.bmp";
 	const string pathFantasmaClasico2 = "Resources/Clyde.bmp";
@@ -51,13 +50,30 @@ private:
 	Texture* monedaGalacticoTexture;
 	Texture* superMonedaGalacticoTexture;
 	Texture* paredGalacticoTexture;
-	
+
 	AnimationFrames* framesAnimacionPacmanClasico;
 	AnimationFrames* framesAnimacionFantasmaClasico;
 
-public:
+private:
+	map<string, Texture*> mapTexturas;
+	map<string, AnimationFrames*> mapFramesAnimaciones;
+	
+	map<string, SDL_Texture*> mapTexturasSDL;
+	SDL_Renderer* renderer;
+
 	TextureManager();
 	~TextureManager();
+
+	static TextureManager* instancia;
+public:
+	static TextureManager* getInstancia();
+
+	//Metodos accesores
+	SDL_Renderer* getRenderer() { return renderer; }
+	void setRenderer(SDL_Renderer* _renderer) { renderer = _renderer; }
+
+	void inicializarRecursos();
+	void inicializarRecursosSDL(SDL_Renderer* _renderer);
 
 	Texture* getTextura(string _key) { return mapTexturas[_key]; }
 	AnimationFrames* getFramesAnimacion(string _key) { return mapFramesAnimaciones[_key]; }
@@ -65,5 +81,15 @@ public:
 	void addTextura(string _key, Texture* _textura);
 	void addFramesAnimacion(string _key, AnimationFrames* _framesAnimacion);
 	void free();
+
+	//Metodos propuesta nueva
+	bool load(string fileName, string _key, SDL_Renderer* _renderer);
+
+	void clearTextureMap();
+	void clearFromTextureMap(string _key);
+
+	void draw(string _key, int x, int y, int width, int height, SDL_Renderer* pRenderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void drawFrame(string _key, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer, double angle, int alpha, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void drawTile(string _key, int margin, int spacing, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer);
 };
 

@@ -75,13 +75,13 @@
     <ClCompile Include="MsPacman.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="patrones\Patrones Estructurales\decorator.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="gui\GUI.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="gui\Panel.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

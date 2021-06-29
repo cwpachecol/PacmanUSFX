@@ -29,14 +29,14 @@ class MapGenerator
 private:
 	vector<GameObject*> vectorObjetosJuego;
 	TileGraph* tileGraph;
-	TextureManager* textureManager;
+	//TextureManager* textureManager;
 	//Factory* factory;
 
 	int anchoPantalla;
 	int altoPantalla;
 public:
 	//MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla, Factory* fabrica);
-	MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla);
+	MapGenerator(TileGraph* _tileGraph, /*TextureManager* _textureManager,*/ int _anchoPantalla, int _altoPantalla);
 
 	// carga el archivo con el mapa del nivel y todos los objetos
 	bool load(string path);

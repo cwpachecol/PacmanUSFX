@@ -1,11 +1,11 @@
 #include "MapGenerator.h"
 
 //MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla, Factory* _factory)
-MapGenerator::MapGenerator(TileGraph* _tileGraph, TextureManager* _textureManager, int _anchoPantalla, int _altoPantalla)
+MapGenerator::MapGenerator(TileGraph* _tileGraph, /*TextureManager* _textureManager,*/ int _anchoPantalla, int _altoPantalla)
 {
 	//factory = _factory;
 	tileGraph = _tileGraph;
-	textureManager = _textureManager;
+	//textureManager = _textureManager;
 	anchoPantalla = _anchoPantalla;
 	altoPantalla = _altoPantalla;
 }
@@ -43,7 +43,7 @@ bool MapGenerator::load(string path)
 			switch (chars[x])
 			{
 			case 'x':
-				objetoNuevo = new Pared(tileNuevo, textureManager->getTextura("pared_clasico"));
+				objetoNuevo = new Pared(tileNuevo, TextureManager::getInstancia()->getTextura("pared_clasico"));
 				
 				((GameActor*)objetoNuevo)->setFramesDireccion(1);
 
@@ -51,29 +51,29 @@ bool MapGenerator::load(string path)
 				objetoNuevo->setFramesDireccion(1);*/
 				break;
 			case '.':
-				objetoNuevo = new Moneda(tileNuevo, textureManager->getTextura("moneda_clasico"));
+				objetoNuevo = new Moneda(tileNuevo, TextureManager::getInstancia()->getTextura("moneda_clasico"));
 				((GameActor*)objetoNuevo)->setFramesDireccion(4);
 
 				/*objetoNuevo = factory->createMonedaInstance(tileNuevo, textureManager, x * 25, y * 25);
 				objetoNuevo->setFramesDireccion(4);*/
 				break;
 			case 'p':
-				objetoNuevo = new Pacman(tileNuevo, textureManager->getTextura("pacman_clasico"));
-				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("pacman_clasico"));
+				objetoNuevo = new Pacman(tileNuevo, TextureManager::getInstancia()->getTextura("pacman_clasico"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(TextureManager::getInstancia()->getFramesAnimacion("pacman_clasico"));
 				((GameActor*)objetoNuevo)->setFramesDireccion(2);
 
 				/*objetoNuevo = factory->createPacmanInstance(tileNuevo, textureManager, x * 25, y * 25, 5);
 				objetoNuevo->setFramesDireccion(2);*/
 				break;
 			case 'm':
-				objetoNuevo = new MsPacman(tileNuevo, textureManager->getTextura("pacman_clasico"));
-				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("pacman_clasico"));
+				objetoNuevo = new MsPacman(tileNuevo, TextureManager::getInstancia()->getTextura("pacman_clasico"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(TextureManager::getInstancia()->getFramesAnimacion("pacman_clasico"));
 				((GameActor*)objetoNuevo)->setFramesDireccion(2);
 				break;
 						
 			case 'a':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTextura("fantasma_clasico1"));
-				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("fantasma_clasico"));
+				objetoNuevo = new Fantasma(tileNuevo, TextureManager::getInstancia()->getTextura("fantasma_clasico1"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(TextureManager::getInstancia()->getFramesAnimacion("fantasma_clasico"));
 				((GameActor*)objetoNuevo)->setFramesDireccion(2);
 				((GameActor*)objetoNuevo)->setVelocidad(3);
 
@@ -99,8 +99,8 @@ bool MapGenerator::load(string path)
 				}*/
 				break;
 			case 'b':
-				objetoNuevo = new Fantasma(tileNuevo, textureManager->getTextura("fantasma_clasico2"));
-				((GameActor*)objetoNuevo)->setFramesAnimacion(textureManager->getFramesAnimacion("fantasma_clasico"));
+				objetoNuevo = new Fantasma(tileNuevo, TextureManager::getInstancia()->getTextura("fantasma_clasico2"));
+				((GameActor*)objetoNuevo)->setFramesAnimacion(TextureManager::getInstancia()->getFramesAnimacion("fantasma_clasico"));
 				((GameActor*)objetoNuevo)->setFramesDireccion(3);
 				((GameActor*)objetoNuevo)->setVelocidad(2);
 

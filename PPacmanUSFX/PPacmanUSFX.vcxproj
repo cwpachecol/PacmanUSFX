@@ -30,13 +30,13 @@
     <ClCompile Include="GamePawnControllerKey1.cpp" />
     <ClCompile Include="gui\GUI.cpp" />
     <ClCompile Include="gui\Panel.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Moneda.cpp" />
     <ClCompile Include="MsPacman.cpp" />
     <ClCompile Include="Pacman.cpp" />
     <ClCompile Include="Pared.cpp" />
     <ClCompile Include="PathFinder.cpp" />
-    <ClCompile Include="patrones\Patrones Estructurales\decorator.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="AnimationFrames.cpp" />
     <ClCompile Include="TextureManager.cpp" />
