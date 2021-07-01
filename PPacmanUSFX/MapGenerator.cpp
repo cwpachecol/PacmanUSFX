@@ -129,8 +129,13 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 
-	GameObject* objetoPanel = new Panel(TextureManager::getInstancia()->getRenderer(), 20, 50, 150, 300, "Panel1");
-	((Panel*)objetoPanel)->setColorPanel(250, 180, 35, 250);
+	GameObject* contenedorPaneles = new GUI(nullptr, TextureManager::getInstancia()->getRenderer());
+	((GUI*)contenedorPaneles)->agregarPanel(500, 50, 100, 400, "PANEL A", 255, 255, 255, 255, true);
+	((GUI*)contenedorPaneles)->agregarPanel(550, 500, 100, 50, "PANEL B", 10, 255, 24, 255, true);
+	((GUI*)contenedorPaneles)->agregarPanel(570, 75, 50, 50, "BUTTON A", 0, 5, 65, 255, true);
+	vectorObjetosJuego.push_back(contenedorPaneles);
+	GameObject* objetoPanel = new Panel(TextureManager::getInstancia()->getRenderer(), 620, 50, 150, 300, "Panel1");
+	((Panel*)objetoPanel)->setPanelColorRGBA(250, 180, 35, 250);
 	vectorObjetosJuego.push_back(objetoPanel);
 
 

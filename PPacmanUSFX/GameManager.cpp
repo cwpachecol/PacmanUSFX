@@ -30,6 +30,7 @@ int GameManager::onExecute() {
 
 	TileGraph tileGraphGM(20, 15, 800, 600);
 	textureManager = TextureManager::getInstancia();
+	textureManager->setRenderer(gRenderer);
 	textureManager->inicializarRecursosSDL(gRenderer);
 	//TextureManager::getInstancia()->inicializarRecursosSDL(gRenderer);
 	GameActor::tileGraph = &tileGraphGM;

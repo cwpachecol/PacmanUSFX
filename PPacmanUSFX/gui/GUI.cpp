@@ -56,13 +56,15 @@ void GUI::agregarPanel(int _x, int _y, int _w, int _h, std::string _nombre, int 
 {
     int offset = 1;
     Panel* panel_border = new Panel(renderer, _x - offset, _y - offset, _w + offset + offset, _h + offset + offset, _nombre + " border");
-    panel_border->setColorPanel(0, 0, 0, 255);
+    panel_border->setPanelColorRGBA(0, 0, 0, 255);
     panel_border->setRevisarActividadMouse(false);
+
     paneles.push_back(panel_border);
 
     Panel* panel = new Panel(renderer, _x, _y, _w, _h, _nombre);
-    panel->setColorPanel(_r, _g, _b, _a);
-    panel->setRevisarActividadMouse(_flag);
+    panel->setPanelColorRGBA(_r, _g, _b, _a);
+    panel->setRevisarActividadMouse(true);
+    panel->setClickedOn(false);
     paneles.push_back(panel);
 }
 

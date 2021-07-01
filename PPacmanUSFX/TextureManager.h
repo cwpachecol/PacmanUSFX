@@ -88,8 +88,8 @@ public:
 	void clearTextureMap();
 	void clearFromTextureMap(string _key);
 
-	void draw(string _key, int x, int y, int width, int height, SDL_Renderer* pRenderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
-	void drawFrame(string _key, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer, double angle, int alpha, SDL_RendererFlip flip = SDL_FLIP_NONE);
-	void drawTile(string _key, int margin, int spacing, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* pRenderer);
+	void draw(string _key, int x, int y, int width, int height, SDL_Renderer* _renderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void drawFrame(string _key, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* _renderer, double angle, int alpha, SDL_RendererFlip flip = SDL_FLIP_NONE);
+	void drawTile(string _key, int margin, int spacing, int x, int y, int width, int height, int currentRow, int currentFrame, SDL_Renderer* _renderer);
 };
 
