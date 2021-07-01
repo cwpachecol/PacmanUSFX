@@ -129,14 +129,20 @@ bool MapGenerator::load(string path)
 	// Close the file
 	file.close();
 
-	GameObject* contenedorPaneles = new GUI(nullptr, TextureManager::getInstancia()->getRenderer());
-	((GUI*)contenedorPaneles)->agregarPanel(500, 50, 100, 400, "PANEL A", 255, 255, 255, 255, true);
-	((GUI*)contenedorPaneles)->agregarPanel(550, 500, 100, 50, "PANEL B", 10, 255, 24, 255, true);
-	((GUI*)contenedorPaneles)->agregarPanel(570, 75, 50, 50, "BUTTON A", 0, 5, 65, 255, true);
+	GameObject* contenedorPaneles = new GUIComposite(TextureManager::getInstancia()->getRenderer(), "Root");
+	GameObject* objetoPanel1 = new Panel(TextureManager::getInstancia()->getRenderer(), 620, 50, 150, 300, "PANEL A");
+	((Panel*)objetoPanel1)->setPanelColorRGBA(250, 180, 35, 250);
+	GameObject* objetoPanel2 = new Panel(TextureManager::getInstancia()->getRenderer(), 550, 500, 100, 50, "PANEL B");
+	((Panel*)objetoPanel1)->setPanelColorRGBA(10, 255, 24, 255);
+	((GUIComposite*)contenedorPaneles)->add((Component*)objetoPanel1);
+	((GUIComposite*)contenedorPaneles)->add((Component*)objetoPanel2);
+
+	/*((GUIComposite*)contenedorPaneles)->add(550, 500, 100, 50, "PANEL B", 10, 255, 24, 255, true);
+	((GUIComposite*)contenedorPaneles)->add(570, 75, 50, 50, "BUTTON A", 0, 5, 65, 255, true);
 	vectorObjetosJuego.push_back(contenedorPaneles);
-	GameObject* objetoPanel = new Panel(TextureManager::getInstancia()->getRenderer(), 620, 50, 150, 300, "Panel1");
-	((Panel*)objetoPanel)->setPanelColorRGBA(250, 180, 35, 250);
-	vectorObjetosJuego.push_back(objetoPanel);
+	GameObject* objetoPanel = new Panel(TextureManager::getInstancia()->getRenderer(), 620, 50, 150, 300, "BUTTON A");
+	((Panel*)objetoPanel)->setPanelColorRGBA(250, 180, 35, 250);*/
+	vectorObjetosJuego.push_back(contenedorPaneles);
 
 
 	/*GameObject* objetoPanel = new GamePanel(new Texture(), 20, 450);

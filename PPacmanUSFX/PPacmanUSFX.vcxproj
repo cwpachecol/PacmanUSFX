@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GUI\Component.cpp" />
     <ClCompile Include="Fantasma.cpp" />
     <ClCompile Include="Fruta.cpp" />
     <ClCompile Include="GameActor.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="GamePawnControllerKey2.cpp" />
     <ClCompile Include="GamePawnController.cpp" />
     <ClCompile Include="GamePawnControllerKey1.cpp" />
+    <ClCompile Include="GUI\GUIComposite.cpp" />
     <ClCompile Include="GUI\GUI.cpp" />
     <ClCompile Include="GUI\Panel.cpp" />
     <ClCompile Include="main.cpp" />
@@ -44,6 +46,7 @@
     <ClCompile Include="TileGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GUI\Component.h" />
     <ClInclude Include="Fantasma.h" />
     <ClInclude Include="Fruta.h" />
     <ClInclude Include="GameActor.h" />
@@ -54,6 +57,7 @@
     <ClInclude Include="GamePawnControllerKey2.h" />
     <ClInclude Include="GamePawnController.h" />
     <ClInclude Include="GamePawnControllerKey1.h" />
+    <ClInclude Include="GUI\GUIComposite.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="GUI\Panel.h" />
     <ClInclude Include="MapGenerator.h" />

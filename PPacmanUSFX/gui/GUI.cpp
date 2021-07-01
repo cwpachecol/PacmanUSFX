@@ -52,7 +52,7 @@ int GUI::initializarSDL()
     return 0;
 }
 
-void GUI::agregarPanel(int _x, int _y, int _w, int _h, std::string _nombre, int _r, int _g, int _b, int _a, bool _flag)
+void GUI::agregarPanel(int _x, int _y, int _w, int _h, string _nombre, int _r, int _g, int _b, int _a, bool _flag)
 {
     int offset = 1;
     Panel* panel_border = new Panel(renderer, _x - offset, _y - offset, _w + offset + offset, _h + offset + offset, _nombre + " border");

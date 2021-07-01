@@ -1,14 +1,13 @@
 #pragma once
-#include "../GameObject.h"
+#include "../GUI/Component.h"
 #include<iostream>
 using namespace std;
 
 class Panel :
-    public GameObject
+    public Component
 {
 
 protected:
-	SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	
 	SDL_Rect* panel;
@@ -17,7 +16,6 @@ protected:
 	int panelColorG;
 	int panelColorB;
 	int panelColorA;
-
 
 	SDL_Rect* etiqueta;
 	string etiquetaTexto;
@@ -78,7 +76,7 @@ public:
 	void setEtiquetaY(int _y) { etiqueta->y = _y; }
 	void setEtiquetaW(int _w) { etiqueta->w = _w; }
 	void setEtiquetaH(int _h) { etiqueta->h = _h; }
-	void setEtiquetaTexto(std::string _etiquetaTexto) { etiquetaTexto = _etiquetaTexto; }
+	void setEtiquetaTexto(string _etiquetaTexto) { etiquetaTexto = _etiquetaTexto; }
 	void setEtiquetaFuente(TTF_Font* _etiquetaFuente) { etiquetaFuente = _etiquetaFuente; }
 	void setEtiquetaTamanoFuente(int _etiquetaTamanoFuente) { etiquetaTamanoFuente = _etiquetaTamanoFuente; }
 	void setEtiquetaSDLColor(SDL_Color* _etiquetaSDLColor) { etiquetaSDLColor = _etiquetaSDLColor; }
@@ -101,6 +99,8 @@ public:
 	SDL_Texture* SDLTextureFromText(TTF_Font* _fuente, string _texto, SDL_Color* _colorTexto);
 
 
+	void add(Component*) {}
+	void remove(Component*) {}
 	virtual void render();
 	virtual void update();
 	virtual void handleEvent(SDL_Event* event);

@@ -91,7 +91,6 @@ void Panel::render()
     SDL_Point* center = nullptr;
     SDL_RendererFlip renderFlip = SDL_FLIP_NONE;
     SDL_RenderCopyEx(renderer, etiquetaTextura, cuadroTexto, etiqueta, angle, center, renderFlip);
-
 }
 
 SDL_Texture* Panel::SDLTextureFromRect(SDL_Rect* _rect, SDL_Color* _panelColor, SDL_TextureAccess _access)

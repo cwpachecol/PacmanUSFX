@@ -17,7 +17,7 @@
 #include "TileGraph.h"
 #include "TextureManager.h"
 #include "GUI/Panel.h"
-#include "gui/GUI.h"
+#include "GUI/GUIComposite.h"
 //#include "FactoryPacmanClasico.h"
 //#include "FactoryPacmanGalactico.h"
 //#include "Factory.h"
