@@ -8,7 +8,7 @@ class Panel :
 {
 
 protected:
-	SDL_Renderer* renderer = nullptr;
+	//SDL_Renderer* renderer = nullptr;
 	
 	SDL_Rect* panel;
 	SDL_Color* panelSDLColor;
@@ -16,6 +16,11 @@ protected:
 	int panelColorG;
 	int panelColorB;
 	int panelColorA;
+
+	int panelColorREnfocado;
+	int panelColorGEnfocado;
+	int panelColorBEnfocado;
+	int panelColorAEnfocado;
 
 	SDL_Rect* etiqueta;
 	string etiquetaTexto;
@@ -71,6 +76,7 @@ public:
 	void setPanelColorB(int _b) { panelColorB = _b; }
 	void setPanelColorA(int _a) { panelColorA = _a; }
 	void setPanelColorRGBA(int _r, int _g, int _b, int _a);
+	void setPanelColorRGBAEnfocado(int _r, int _g, int _b, int _a);
 
 	void setEtiquetaX(int _x) { etiqueta->x = _x; }
 	void setEtiquetaY(int _y) { etiqueta->y = _y; }

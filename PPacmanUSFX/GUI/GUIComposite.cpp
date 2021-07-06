@@ -13,6 +13,7 @@ void GUIComposite::add(Component* _component)
 
 void GUIComposite::remove(Component* _component)
 {
+	setEliminar(true);
 	/*vectorComponentes.erase((std::remove(vectorComponentes.begin(), vectorComponentes.end(), _gameObject), vectorComponentes.end());
 	auto ivectorComponentes = vectorComponentes.begin();
 	vectorComponentes.erase(ivectorComponentes.begin(), ivectorComponentes.end());*/

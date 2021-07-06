@@ -9,6 +9,8 @@ Panel::Panel(SDL_Renderer* _renderer, int _posicionX, int _posicionY, int _ancho
 
     panelSDLColor = new SDL_Color({ 155, 25, 255});
     setPanelColorRGBA(255, 255, 255, 255);
+    setPanelColorRGBAEnfocado((int)(panelColorR * 0.5), (int)(panelColorG * 0.5), (int)(panelColorB * 0.5), (int)(panelColorA * 0.5));
+
     etiqueta = new SDL_Rect({ _posicionX + 1, _posicionY + 1, _ancho, _alto });
     etiquetaTamanoFuente = 15;
 
@@ -17,7 +19,7 @@ Panel::Panel(SDL_Renderer* _renderer, int _posicionX, int _posicionY, int _ancho
     etiquetaSDLColor = new SDL_Color({ 150, 70, 210});
     setEtiquetaColorRGBA(20, 120, 220, 250);
     revisarActividadMouse = true;
-    clickedOn = false;
+    clickedOn = true;
 }
 
 //Color Panel::get_panel_color()
@@ -53,6 +55,23 @@ void Panel::setPanelColorRGBA(int _r, int _g, int _b, int _a)
     panelColorA = _a;
 }
 
+void Panel::setPanelColorRGBAEnfocado(int _r, int _g, int _b, int _a)
+{
+    if (_r > 255 || _r < 0)
+        _r %= 255;
+    if (_g > 255 || _g < 0)
+        _g %= 255;
+    if (_b > 255 || _b < 0)
+        _b %= 255;
+    if (_a > 255 || _a < 0)
+        _a %= 255;
+
+    panelColorREnfocado = _r;
+    panelColorGEnfocado = _g;
+    panelColorBEnfocado = _b;
+    panelColorAEnfocado = _a;
+}
+
 void Panel::setEtiquetaColorRGBA(int _r, int _g, int _b, int _a)
 {
     if (_r > 255 || _r < 0)
@@ -81,7 +100,12 @@ bool Panel::mouseDentroLimites()
 
 void Panel::render()
 {
-    SDL_SetRenderDrawColor(renderer, panelColorR, panelColorG, panelColorB, panelColorA);
+    if (mouseDentroLimites()) {
+        SDL_SetRenderDrawColor(renderer, panelColorREnfocado, panelColorGEnfocado, panelColorBEnfocado, panelColorAEnfocado);
+    }
+    else {
+        SDL_SetRenderDrawColor(renderer, panelColorR, panelColorG, panelColorB, panelColorA);
+    }
     //SDL_RenderDrawRect(renderer, panel);
     SDL_RenderFillRect(renderer, panel);
     SDL_Texture* etiquetaTextura = SDLTextureFromText(etiquetaFuente, etiquetaTexto, etiquetaSDLColor);
